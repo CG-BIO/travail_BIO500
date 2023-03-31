@@ -17,6 +17,7 @@ library(graphics)
 # Dipsy --> Francis
 # Laa-laa --> Nic
 # Po --> Camille Gagnon
+# Noo-Noo l'aspirateur --> Simon
 # Bebe Soleil --> C'EST MEME PAS UN TELETUBBIES SELON BIG CAM
 
 
