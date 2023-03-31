@@ -452,3 +452,4 @@ ORDER BY nb_liens DESC;"
 nb_liens_paires <- dbGetQuery(con, sql_requete)
 head(nb_liens_paires)
 
+#petit poulet hihi
