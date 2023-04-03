@@ -44,6 +44,8 @@ ggplot() +
   theme_void()
 
 
+grossefonction <- function(x){
+    
 # IMPORTER LES BASES DE DONNEES PRIMAIRES
 
 
@@ -475,7 +477,9 @@ connectance # 0.1201777
 # Nombre de liens moyens par étudiant
 moy_lien <- mean(nb_liens$nb_liens) # 19.6319
 var(nb_liens$nb_liens) # 580.3081
+}
 
+grossefonction(x)
 
 
 
