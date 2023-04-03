@@ -363,7 +363,7 @@ table(etudiant$region_administrative) # sans blasphemes
 library(RSQLite)
 
 # Etablir la connexion
-con <- dbConnect(SQLite(), dbname="C:/Users/Loue/OneDrive/Documents/H2023/BIO500/projet_session.db")
+con <- dbConnect(SQLite(), dbname="projet_session.db")
 
 # Creer la table etudiant
 etudiant_sql <- "
@@ -469,8 +469,8 @@ connectance <- sum(nb_liens_paires$nb_liens) / (nrow(nb_liens) * nrow(nb_liens))
 connectance # 0.1201777
 
 # Nombre de liens moyens par étudiant
-mean(nb_liens$nb_liens) # 19.6319
-var(nb_liens$nb_liens) # 580.3081
+moy_lien <- mean(nb_liens$nb_liens) # 19.6319
+var(moy_lien) # 580.3081
 
 
 
