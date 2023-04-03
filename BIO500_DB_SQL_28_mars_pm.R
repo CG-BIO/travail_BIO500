@@ -1,3 +1,5 @@
+
+
 # COEQUIPIERS: NICOLAS BEAUDOIN, FRANCIS BOILY, CAMILLE GAGNON, MARILOU COURNOYER
 
 
@@ -421,10 +423,12 @@ bd_cours <- read.csv(file = "cours.csv")
 bd_collab <- read.csv(file = "collab.csv")
 bd_etudiant <- read.csv(file = "etudiant.csv")
 
-# Injecter les donnees dans les bases de donnees SQL
-dbWriteTable(con, append = TRUE, name = "cours", value = bd_cours, overwrite = TRUE, row.names = FALSE)
-dbWriteTable(con, append - TRUE, name = "collab", value = bd_collab, overwrite = TRUE, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "etudiant", value = bd_etudiant, overwrite = TRUE, row.names = FALSE)
+
+# Injecter les donnees dans les bases de donnees SQL --> si problème, voir l'argument "append"
+
+dbWriteTable(con, name = "cours", value = bd_cours, overwrite = TRUE, row.names = FALSE)
+dbWriteTable(con, name = "collab", value = bd_collab, overwrite = TRUE, row.names = FALSE)
+dbWriteTable(con, name = "etudiant", value = bd_etudiant, overwrite = TRUE, row.names = FALSE)
 
 
 ## FAIRE LES REQUETES DEMANDEES
@@ -470,7 +474,8 @@ connectance # 0.1201777
 
 # Nombre de liens moyens par étudiant
 moy_lien <- mean(nb_liens$nb_liens) # 19.6319
-var(moy_lien) # 580.3081
+var(nb_liens$nb_liens) # 580.3081
+
 
 
 
