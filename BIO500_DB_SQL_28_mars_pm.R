@@ -3,27 +3,20 @@
 # COEQUIPIERS: NICOLAS BEAUDOIN, FRANCIS BOILY, CAMILLE GAGNON, MARILOU COURNOYER
 
 
-# CHARGER LES PACKAGES
+# CHARGER PACKAGES
 
+library(ggforce)
 library(dplyr)
 library(tidyr)
 library(RSQLite)
 library(tidyverse)
 library(stringr)
 library(graphics)
+library(ggplot2)
+library(jpeg)
+library(grid)
+library(png)
 
-
-# CHOISIS TON TELETUBBIES OU BRULE EN ENFER POUR L'ETERNITE:
-
-# Tinky winky --> Marilou
-# Dipsy --> Francis
-# Laa-laa --> Nic
-# Po --> Camille Gagnon
-# Noo-Noo l'aspirateur --> Simon
-# Bebe Soleil --> C'EST MEME PAS UN TELETUBBIES SELON BIG CAM
-
-
-# DESSINER UN WANNABE BEBE SOLEIL
 theta <- seq(0, 2*pi, length.out=100)
 x <- 0.9*cos(theta)
 y <- 0.9*sin(theta)
@@ -31,16 +24,21 @@ df1 <- data.frame(x, y)
 theta_face <- seq(0, 2*pi, length.out=100)
 x_face <- 0.6*cos(theta_face)
 y_face <- 0.6*sin(theta_face)
-x_mouth <- c(-0.5, -0.3, 0, 0.3, 0.5)
-y_mouth <- c(-0.3, -0.5, -0.6, -0.5, -0.3)
-df_face <- data.frame(x = c(x_face, x_mouth), y = c(y_face, y_mouth))
+df_face <- data.frame(x = x_face, y = y_face)
+theta_smile <- seq(-pi/2, pi/2, length.out=100)
+
+img <- readPNG("bebesoleil.png")
+
 ggplot() +
   geom_polygon(data=df1, aes(x, y), fill="orange", size=2) +
   geom_polygon(data=df_face, aes(x, y), fill="#FFD700", color="#FFD700", size=2) +
-  geom_segment(data=df1, aes(x=1.1*x, y=1.1*y, xend=1.5*x, yend=1.5*y), 
-               color="#FFD700", size=2, lineend="round") +
+  geom_segment(data=df1[seq(1, nrow(df1), by = 2),], aes(x=1.1*x, y=1.1*y, xend=1.3*x, yend=1.3*y), 
+               color="orange", size=1.5, lineend="round") +
+  geom_segment(data=df1[seq(2, nrow(df1), by = 2),], aes(x=1.1*x, y=1.1*y, xend=1.5*x, yend=1.5*y), 
+               color="#FFD700", size=1.5, lineend="round") +
   scale_x_continuous(limits=c(-1.5, 1.5)) +
   scale_y_continuous(limits=c(-1.5, 1.5)) +
+  annotation_custom(rasterGrob(img), xmin=-0.6, xmax=0.6, ymin=-0.6, ymax=0.6) +
   theme_void()
 
 
