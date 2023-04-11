@@ -16,6 +16,7 @@ library(ggplot2)
 library(jpeg)
 library(grid)
 library(png)
+library(rticles)
 
 theta <- seq(0, 2*pi, length.out=100)
 x <- 0.9*cos(theta)
