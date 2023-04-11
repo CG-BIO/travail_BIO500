@@ -1,36 +1,46 @@
+
+# Charger les packages
 library(targets)
+library(tarchetypes)
 
-source("data.R")
-source("db_sql.R")
-source("requetes_sql.R")
-source("analyses.R")
+# Créer une fonction pour le nettoyage et l'assemblage des données
+prep_donnees <- function(data_files) {
+  # Fonction qui lit les fichiers de données et les joint
+  data <- data.frame()
+  
+  for (file in data_files) {
+    new_dat <- read.table(file, header = T)
+    data <- rbind(data, new_dat)
+  }
+  
+  return(data)
+}
 
-# Dépendances
+# Importer le fichier source
+source("R/analyse.R")
 
-#tar_option_set(packages = c("MASS", "igraph"))
-
-# Pipeline
+# Créer les tragets du criss
+tar_option_set(packages = c("rmarkdown","knitr"))
 list(
-  # Une target pour le chemin du fichier de donnée permet de suivre les 
-  # changements dans le fichier
   tar_target(
     name = path, # Cible
-    command = "data/data.txt", # Emplacement du fichier
-    format = "file"
-  ), 
-  # La target suivante a "path" pour dépendance et importe les données. Sans
-  # la séparation de ces deux étapes, la dépendance serait brisée et une
-  # modification des données n'entrainerait pas l'exécution du pipeline
-  tar_target(
-    name = data, # Cible pour l'objet de données
-    command = read.table(path) # Lecture des données
-  ),   
-  tar_target(
-    resultat_modele, # Cible pour le modèle 
-    mon_modele(data) # Exécution de l'analyse
+    command = "./data_collab", # Dossier contenant les fichiers de données
+    format = "file" # Format de la cible
   ),
   tar_target(
-    figure, # Cible pour l'exécution de la figure
-    ma_figure(data, resultat_modele) # Réalisation de la figure
+    name = file_paths, # Cible
+    command = list.files(path, full.names = TRUE) # Liste les fichiers dans le dossier
+  ),
+  tar_target(
+    name = data, # Cible pour le modèle
+    command = prep_donnees(file_paths) # Jointure des jeux de données
+  ),
+  tar_target(
+    name = resultat_modele, # Cible pour le modèle
+    command = mon_modele(data) # Exécution de l'analyse
+  ),
+  tar_render(
+    name = rapport, # Cible du rapport
+    path = "rapport/rapport.Rmd" # Le path du rapport à renderiser
   )
 )
