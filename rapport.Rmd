@@ -4,19 +4,15 @@ author:
   - name: Nicolas Beaudoin
     email: bean1710@usherbrooke.ca
     affiliation: Université de Sherbrooke
-    correspondingauthor: true
-    footnote: 1
   - name: Camille Gagnon
     email: gagc3901@usherbrooke.ca
     affiliation: Université de Sherbrooke
   - name: Marilou Cournoyer
     email: coum3903@userhbrooke.ca
     affiliation: Université de Sherbrooke
-    footnote: 2
   - name: Francis Boily 
     email: boif2411@usherbrooke.ca
     affiliation: Université de Sherbrooke
-    footnote: 2
 address:
   - code: Département des sciences
 
