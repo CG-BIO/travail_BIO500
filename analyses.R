@@ -1,3 +1,6 @@
+fct_analyse -> function () {
+
+
 # Calculer le nombre d'étudiants
 nrow(nb_liens) # 163 étudiants
 
@@ -13,3 +16,6 @@ connectance # 0.1201777
 # Nombre de liens moyens par étudiant
 moy_lien <- mean(nb_liens$nb_liens) # 19.6319
 var(nb_liens$nb_liens) # 580.3081
+
+return(fct_analyse)
+}
