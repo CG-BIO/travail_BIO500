@@ -36,7 +36,7 @@ Les dynamiques des réseaux écologiques sont souvent très complexes à analyse
 * Quelle représentation graphique représenterait le mieux les interactions sociales ? 
 * Quelles sont les individus ayant le plus d’interactions dans le réseau et ayant une importance accrue (centralité) ? 
 * Quels sont les liens entre les différents regroupements d’individus (étant en interactions les uns avec les autres au sein du réseau) (modularité) ?  p.22
-* Est-ce que l’année de début du baccalauréat influencent le nombre d’interactions moyens des individus ? 
+* Est-ce que l’année de début du programme influence le nombre moyen d’interactions des individus ? 
 
 \
 Ces questions seront étudiées en mettant en relation les différents concepts déjà étudiés sur les communautés animales et en analysant si nous pouvons y lier des similitudes. 
@@ -55,28 +55,20 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 ## **Discussion et parallèles écologiques**
 \
 sgsf
+\
+\
+--------------------------------------
 
-
-
-
-
+# **Conclusion**
+\
+dvsd
+\
+\
+\
+[@Dirac1953888]
 
 
 For detailed instructions regarding the elsevier article class, see   <https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions>
-
-# Bibliography styles
-
-Here are two sample references: @Feynman1963118 [@Dirac1953888].
-
-By default, natbib will be used with the `authoryear` style, set in `classoption` variable in YAML. 
-You can sets extra options with `natbiboptions` variable in YAML header. Example 
-```yaml
-natbiboptions: longnamesfirst,angle,semicolon
-```
-
-There are various more specific bibliography styles available at
-<https://support.stmdocs.in/wiki/index.php?title=Model-wise_bibliographic_style_files>. 
-To use one of these, add it in the header using, for example, `biblio-style: model1-num-names`.
 
 ## Using CSL 
 
