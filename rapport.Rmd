@@ -1,24 +1,24 @@
 ---
 title: Short Paper
 author:
-  - name: Alice Anonymous
-    email: alice@example.com
-    affiliation: Some Institute of Technology
+  - name: Nicolas Beaudoin
+    email: bean1710@usherbrooke.ca
+    affiliation: Universite_minuscule de Sherbrooke
     correspondingauthor: true
     footnote: 1
-  - name: Bob Security
-    email: bob@example.com
-    affiliation: Another University
-  - name: Cat Memes
-    email: cat@example.com
-    affiliation: Another University
+  - name: Camille Gagnon
+    email: gagc3901@usherbrooke.ca
+    affiliation: Universite_minuscule de Sherbrooke
+  - name: Marilou Cournoyer
+    email: coum3903@userhbrooke.ca
+    affiliation: Universite_minuscule de Sherbrooke
     footnote: 2
-  - name: Derek Zoolander
-    email: derek@example.com
-    affiliation: Some Institute of Technology
+  - name: Francis Boily 
+    email: boif2411@usherbrooke.ca
+    affiliation: Universite_minuscule de Sherbrooke
     footnote: 2
 address:
-  - code: Some Institute of Technology
+  - code: Département des sciences
     address: Department, Street, City, State, Zip
   - code: Another University
     address: Department, Street, City, State, Zip
