@@ -4,22 +4,7 @@ library(targets)
 library(tarchetypes)
 library(visNetwork) #pour pouvoir utiliser la commande tar_glimpse (qui nous permet de voir notre réseau)
 
-# Créer une fonction pour le nettoyage et l'assemblage des données
-prep_donnees <- function(data_files) {
-  # Fonction qui lit les fichiers de données et les joint
-  data <- data.frame()
-  
-  for (file in data_files) {
-    new_dat <- read.table(file, header = T)
-    data <- rbind(data, new_dat)
-  }
-  
-  return(data)
-}
-
-##Pourquoi on veut aller chercher notre fichier d'analyses???????
-# Importer le fichier source
-#source("analyses.R") ##ne trouve pas le nombre de liens pcq manque des info dans analyses
+# Importer les fichiers sources
 
 source("prep_donnees.R")
 source("import.R")
