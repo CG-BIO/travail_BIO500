@@ -23,6 +23,7 @@ prep_donnees <- function(data_files) {
 
 source("prep_donnees.R")
 source("import.R")
+source("sql_analyses.R")
 
 # Créer les tragets du criss
 tar_option_set(packages = c("rmarkdown","knitr"))
@@ -49,6 +50,11 @@ list(
     command = fct_prep(import_donnees)
     ),
 
+  tar_target(
+    name = analyses,
+    command = fct_analyse(nettoyage)
+  ),
+  
   tar_target(
     name = resultat_modele, # Cible pour le modèle
     command = mon_modele(data) # Exécution de l'analyse
