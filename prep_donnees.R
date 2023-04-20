@@ -1,4 +1,4 @@
-prep_donnees_target <- function(){
+fct_prep <- function(file_paths){
 
 library(dplyr)
 library(tidyverse)
@@ -275,7 +275,7 @@ etudiant[etudiant == "monterigie"]<-'monteregie'
 etudiant[etudiant == "bas-st-laurent"]<-'bas-saint-laurent'
 table(etudiant$region_administrative) # sans blasphemes
 
-return(prep_donnees_target)
+return(fct_prep)
 }
 
 

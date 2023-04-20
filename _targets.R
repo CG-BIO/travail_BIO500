@@ -19,9 +19,10 @@ prep_donnees <- function(data_files) {
 
 ##Pourquoi on veut aller chercher notre fichier d'analyses???????
 # Importer le fichier source
-source("analyses.R") ##ne trouve pas le nombre de liens pcq manque des info dans analyses
+#source("analyses.R") ##ne trouve pas le nombre de liens pcq manque des info dans analyses
 
 source("prep_donnees.R")
+source("import.R")
 
 # Créer les tragets du criss
 tar_option_set(packages = c("rmarkdown","knitr"))
@@ -38,7 +39,15 @@ list(
     command = list.files(path, full.names = TRUE) # Liste les fichiers dans le dossier
   ),
   
-  tar_target(nettoyage,prep_donnees(file_paths)),
+  tar_target(
+    name = import_donnees,
+    command = fct_import(file_paths)
+  ),#pour importer les données
+  
+  tar_target(
+    name = nettoyage,
+    command = fct_prep(import_donnees)
+    ),
 
   tar_target(
     name = resultat_modele, # Cible pour le modèle
