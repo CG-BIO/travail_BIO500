@@ -3,18 +3,12 @@ title: Short Paper
 author:
   - name: Nicolas Beaudoin
     email: bean1710@usherbrooke.ca
-    affiliation: Université de Sherbrooke
   - name: Camille Gagnon
     email: gagc3901@usherbrooke.ca
-    affiliation: Université de Sherbrooke
   - name: Marilou Cournoyer
     email: coum3903@userhbrooke.ca
-    affiliation: Université de Sherbrooke
   - name: Francis Boily 
     email: boif2411@usherbrooke.ca
-    affiliation: Université de Sherbrooke
-address:
-  - code: Département des sciences
 
 abstract: |
   This is the abstract.Question d'analyse et de rechercheNous voulons regarder l'immigration et l'émigration ainsi que la dispersion au sein des différentes communautés de la classe. Analyse basée sur les spécialistes et généralistes OU introverties et extraverties ? On pourrait aussi comparer l'immigration comme étant un indicateur d'adaptation et de survie au niveau psychologique chez l'être humain. Exemple, l'être humain ne se reconnait pas ou vit un stress dans ses relations sociales (peu de compatibilité) alors il va migrer ailleurs.
