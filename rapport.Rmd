@@ -1,5 +1,5 @@
 ---
-title: Short Paper
+title: Dynamiques relationnelles humaines, un réseau écologique unque !
 author:
   - name: Nicolas Beaudoin
     email: bean1710@usherbrooke.ca
@@ -28,11 +28,39 @@ output:
     keep_tex: true
     citation_package: natbib
 ---
+# **Introduction**
+\
+Les dynamiques des réseaux écologiques sont souvent très complexes à analyser (source 1). Cependant, lorsqu'on essaie de faire un parallère avec nos relations sociales, avec nous, les êtres humains, nous réalisons que nous ne sommes pas si différents autres animaux. Dans le cadre d'une analyse des relations de collaboration de travail au sein d'une classe du baccalauréat en écologie, nous avons tenté d'éclaircir celles-ci. Nous nous sommes concentrés sur les questions d'analyses suivantes (source 1) : 
+\
 
-Please make sure that your manuscript follows the guidelines in the 
-Guide for Authors of the relevant journal. It is not necessary to 
-typeset your manuscript in exactly the same way as an article, 
-unless you are submitting to a camera-ready copy (CRC) journal.
+* Quelle représentation graphique représenterait le mieux les interactions sociales ? 
+* Quelles sont les individus ayant le plus d’interactions dans le réseau et ayant une importance accrue (centralité) ? 
+* Quels sont les liens entre les différents regroupements d’individus (étant en interactions les uns avec les autres au sein du réseau) (modularité) ?  p.22
+* Est-ce que l’année de début du baccalauréat influencent le nombre d’interactions moyens des individus ? 
+
+\
+Ces questions seront étudiées en mettant en relation les différents concepts déjà étudiés sur les communautés animales et en analysant si nous pouvons y lier des similitudes. 
+\
+\
+--------------------------------------
+
+##**Méthode d'analyse et résultats**
+\
+Imbriquer le texte d'analyse ici ainsi que la présentation de principaux résultats. 
+Il faut aussi ajouter quelques exemples de codes pertinents. 
+\
+\
+--------------------------------------
+
+##**Discussion et parallèles écologiques**
+\
+sgsf
+
+
+
+
+
+
 
 For detailed instructions regarding the elsevier article class, see   <https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions>
 
