@@ -48,17 +48,18 @@ list(
   tar_target(
     name = nettoyage,
     command = fct_prep(import_donnees)
-    ),
-
-  tar_target(
-    name = analyses,
-    command = fct_analyse(nettoyage)
   ),
   
   tar_target(
-    name = resultat_modele, # Cible pour le modèle
-    command = mon_modele(data) #Exécution de l'analyse
+    name = sql,
+    command = fct_sql(nettoyage)
   ),
+  
+  tar_target(
+    name = analyses,
+    command = fct_r(sql) 
+  ),
+  
   tar_render(
     name = rapport, # Cible du rapport
     path = "rapport.Rmd" # Le path du rapport à renderiser
