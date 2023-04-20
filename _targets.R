@@ -28,7 +28,7 @@ list(
   
   tar_target(
     name = import_donnees,
-    command = fct_import(file_paths)
+    command = fct_import(path)
   ),#pour importer les données
   
   tar_target(
@@ -44,6 +44,11 @@ list(
   tar_target(
     name = analyses,
     command = fct_r(sql) 
+  ),
+  
+  tar_target(
+    name = figures,
+    command = fct_figures(analyses)
   ),
   
   tar_render(
