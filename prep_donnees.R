@@ -8,8 +8,37 @@ library(graphics)
 ## NETTOYER LES BASES DE DONNEES PRIMAIRES
 
  # Pour importer les données de façon non-reproductible
-  #collab1 <- import_donnees[[1]]
-  
+  collab1 <- import_donnees[[1]]
+  cours1 <- import_donnees[[2]]
+  etudiant1 <- import_donnees[[3]]
+  collab10 <- import_donnees[[4]]
+  cours10 <- import_donnees[[5]]
+  etudiant10 <- import_donnees[[6]]
+  collab2 <- import_donnees[[7]]
+  cours2 <- import_donnees[[8]]
+  etudiant2 <- import_donnees[[9]]
+  collab3 <- import_donnees[[10]]
+  cours3 <- import_donnees[[11]]
+  etudiant3 <- import_donnees[[12]]
+  collab4 <- import_donnees[[13]]
+  cours4 <- import_donnees[[14]]
+  etudiant4 <- import_donnees[[15]]
+  collab5 <- import_donnees[[16]]
+  cours5 <- import_donnees[[17]]
+  etudiant5 <- import_donnees[[18]]
+  collab6 <- import_donnees[[19]]
+  cours6 <- import_donnees[[20]]
+  etudiant6 <- import_donnees[[21]]
+  collab7 <- import_donnees[[22]]
+  cours7 <- import_donnees[[23]]
+  etudiant7 <- import_donnees[[24]]
+  collab8 <- import_donnees[[25]]
+  cours8 <- import_donnees[[26]]
+  etudiant8 <- import_donnees[[27]]
+  collab9 <- import_donnees[[28]]
+  cours9 <- import_donnees[[29]]
+  etudiant9 <- import_donnees[[30]]
+
   # Pour vérifier l'ordre: tar_load(file_paths)
   
 # Supprimer les vilaines colonnes en trop
