@@ -1,3 +1,5 @@
+prep_donnees_target <- function(){
+
 library(dplyr)
 library(tidyverse)
 library(stringr)
@@ -272,3 +274,9 @@ table(etudiant$region_administrative) # avec blasphemes
 etudiant[etudiant == "monterigie"]<-'monteregie'
 etudiant[etudiant == "bas-st-laurent"]<-'bas-saint-laurent'
 table(etudiant$region_administrative) # sans blasphemes
+
+return(prep_donnees_target)
+}
+
+
+
