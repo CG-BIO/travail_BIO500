@@ -1,49 +1,40 @@
 
 
 # IMPORTER LES BASES DE DONNEES PRIMAIRES
-fct_import <- function(){
+fct_import <- function(file_paths){
   
-  collab1 <- read.csv(file = '1_collaboration.csv', sep=";")
-  cours1 <- read.csv(file = '1_cours.csv', sep=";")
-  etudiant1 <- read.csv(file = '1_etudiant.csv', sep=";")
+  # Extraire le nom des fichers de chaque groupe
+  allFiles <- dir('./data')
   
-  collab2 <- read.csv(file = '2_collaboration.csv', sep=";")
-  cours2 <- read.csv(file = '2_cours.csv', sep=";")
-  etudiant2 <- read.csv(file = '2_etudiant.csv', sep=";")
+  # Tables à fusioner
+  tabNames <- c('collaboration', 'cours', 'etudiant')
   
-  collab3 <- read.csv(file = '3_collaboration.csv', sep=";")
-  cours3 <- read.csv(file = '3_cours.csv', sep=";")
-  etudiant3 <- read.csv(file = '3_etudiant.csv', sep=";")
+  # Nombre de groupes
+  nbGroupe <- length(grep(tabNames[1], allFiles))
   
-  collab4 <- read.csv(file = '4_collaboration.csv', sep=";")
-  cours4 <- read.csv(file = '4_cours.csv', sep=";")
-  etudiant4 <- read.csv(file = '4_etudiant.csv', sep=";")
+  # Charger les donnees
+  for(tab in tabNames) {
+    # prendre seulement les fichers de la table specifique `tab`
+    tabFiles <- allFiles[grep(tab, allFiles)]
+    
+    for(groupe in 1:nbGroupe) {
+      # Definir le nom de l'obj dans lequel sauver les donnees de la table `tab` du groupe `groupe`
+      tabName <- paste0(tab, "_", groupe)
+      
+      # Avant  de charger les données, il faut savoir c'est quoi le séparateur utilisé car
+      # il y a eu des données separées par "," et des autres separes par ";"
+      ficher <- paste0('./data/', tabFiles[groupe])
+      L <- readLines(ficher, n = 1) # charger première ligne du donnée
+      separateur <- ifelse(grepl(';', L), ';', ',') # S'il y a un ";", separateur est donc ";"
+      
+      # charger le donnée avec le bon séparateur et donner le nom `tabName`
+      assign(tabName, read.csv(ficher, sep = separateur, stringsAsFactors = FALSE))
+      
+    }
+  }
   
-  collab5 <- read.csv(file = '5_collaboration.csv', sep=";")
-  cours5 <- read.csv(file = '5_cours.csv', sep=";")
-  etudiant5 <- read.csv(file = '5_etudiant.csv', sep=";")
-  
-  collab6 <- read.csv(file = '6_collaboration.csv', sep=";")
-  cours6 <- read.csv(file = '6_cours.csv', sep=";")
-  etudiant6 <- read.csv(file = '6_etudiant.csv', sep=";")
-  
-  collab7 <- read.csv(file = '7_collaboration.csv', sep=";")
-  cours7 <- read.csv(file = '7_cours.csv', sep=";")
-  etudiant7 <- read.csv(file = '7_etudiant.csv', sep=";")
-  
-  collab8 <- read.csv(file = '8_collaboration.csv', sep=",")
-  cours8 <- read.csv(file = '8_cours.csv', sep=",")
-  etudiant8 <- read.csv(file = '8_etudiant.csv', sep=",")
-  
-  collab9 <- read.csv(file = '9_collaboration.csv', sep=";")
-  cours9 <- read.csv(file = '9_cours.csv', sep=";")
-  etudiant9 <- read.csv(file = '9_etudiant.csv', sep=";")
-  
-  collab10 <- read.csv(file = '10_collaboration.csv', sep=";")
-  cours10 <- read.csv(file = '10_cours.csv', sep=";")
-  etudiant10 <- read.csv(file = '10_etudiant.csv', sep=";" )
+  # nettoyer des objets temporaires utilisé dans la boucle
+  rm(list = c('allFiles', 'tab', 'tabFiles', 'tabName', 'ficher', 'groupe'))
   
   return(fct_import)
 }
-
-

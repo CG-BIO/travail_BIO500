@@ -7,7 +7,11 @@ library(graphics)
 
 ## NETTOYER LES BASES DE DONNEES PRIMAIRES
 
-
+ # Pour importer les données de façon non-reproductible
+  #collab1 <- import_donnees[[1]]
+  
+  # Pour vérifier l'ordre: tar_load(file_paths)
+  
 # Supprimer les vilaines colonnes en trop
 collab6 <-subset(collab6, select=-c(X, X.1, X.2, X.3, X.4))
 cours4 <-subset(cours4, select=-X)

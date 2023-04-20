@@ -7,7 +7,7 @@ library(visNetwork) #pour pouvoir utiliser la commande tar_glimpse (qui nous per
 # Importer les fichiers sources
 
 source("prep_donnees.R")
-source("import.R")
+source("import_file.R")
 source("sql_analyses.R")
 source("r_analyses.R")
 
@@ -28,31 +28,31 @@ list(
   
   tar_target(
     name = import_donnees,
-    command = fct_import(path)
-  ),#pour importer les données
+    command = import_the_data(file_paths)
+  )#,#pour importer les données
   
-  tar_target(
-    name = nettoyage,
-    command = fct_prep(import_donnees)
-  ),
+  #tar_target(
+   # name = nettoyage,
+    #command = fct_prep(import_donnees)
+  #),
   
-  tar_target(
-    name = sql,
-    command = fct_sql(nettoyage)
-  ),
+#  tar_target(
+ #   name = sql,
+  #  command = fct_sql(nettoyage)
+  #),
   
-  tar_target(
-    name = analyses,
-    command = fct_r(sql) 
-  ),
+  #tar_target(
+   # name = analyses,
+    #command = fct_r(sql) 
+  #),
   
-  tar_target(
-    name = figures,
-    command = fct_figures(analyses)
-  ),
+  #tar_target(
+   # name = figures,
+   # command = fct_figures(analyses)
+  #)#,
   
-  tar_render(
-    name = rapport, # Cible du rapport
-    path = "rapport.Rmd" # Le path du rapport à renderiser
-  )
+  #tar_render(
+  #  name = rapport, # Cible du rapport
+   # path = "rapport.Rmd" # Le path du rapport à renderiser
+  #)
 )
