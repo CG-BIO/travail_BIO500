@@ -19,28 +19,18 @@ author:
     footnote: 2
 address:
   - code: Département des sciences
-    address: Department, Street, City, State, Zip
-  - code: Another University
-    address: Department, Street, City, State, Zip
-footnote:
-  - code: 1
-    text: "This is the first author footnote."
-  - code: 2
-    text: "Another author footnote."
+
 abstract: |
   This is the abstract.Question d'analyse et de rechercheNous voulons regarder l'immigration et l'émigration ainsi que la dispersion au sein des différentes communautés de la classe. Analyse basée sur les spécialistes et généralistes OU introverties et extraverties ? On pourrait aussi comparer l'immigration comme étant un indicateur d'adaptation et de survie au niveau psychologique chez l'être humain. Exemple, l'être humain ne se reconnait pas ou vit un stress dans ses relations sociales (peu de compatibilité) alors il va migrer ailleurs.
  
 
   It consists of two paragraphs.
-keywords: 
-  - keyword1
-  - keyword2
-journal: "An awesome journal"
+
 date: "`r Sys.Date()`"
 classoption: preprint, 3p, authoryear
 bibliography: mybibfile.bib
 linenumbers: false
-numbersections: true
+numbersections: false
 # Use a CSL with `citation_package = "default"`
 # csl: https://www.zotero.org/styles/elsevier-harvard
 output: 
