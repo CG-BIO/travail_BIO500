@@ -29,25 +29,25 @@ list(
   tar_target(
     name = import_donnees,
     command = import_the_data(file_paths)
-  )#,#pour importer les données
+  ),
+  
+  tar_target(
+    name = nettoyage,
+    command = fct_prep(import_donnees)
+  )#,
   
   #tar_target(
-   # name = nettoyage,
-    #command = fct_prep(import_donnees)
-  #),
-  
-#  tar_target(
- #   name = sql,
-  #  command = fct_sql(nettoyage)
-  #),
-  
-  #tar_target(
-   # name = analyses,
-    #command = fct_r(sql) 
+    #name = sql,
+   # command = fct_sql(nettoyage)
   #),
   
   #tar_target(
-   # name = figures,
+    #name = analyses,
+   # command = fct_r(sql) 
+  #),
+  
+  #tar_target(
+    #name = figures,
    # command = fct_figures(analyses)
   #)#,
   

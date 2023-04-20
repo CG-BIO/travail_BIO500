@@ -1,4 +1,4 @@
-fct_prep <- function(file_paths){
+fct_prep <- function(import_donnees){
 
 library(dplyr)
 library(tidyverse)
