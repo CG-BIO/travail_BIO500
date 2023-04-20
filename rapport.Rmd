@@ -44,7 +44,7 @@ Ces questions seront étudiées en mettant en relation les différents concepts 
 \
 --------------------------------------
 
-##**Méthode d'analyse et résultats**
+## **Méthode d'analyse et résultats**
 \
 Imbriquer le texte d'analyse ici ainsi que la présentation de principaux résultats. 
 Il faut aussi ajouter quelques exemples de codes pertinents. 
@@ -52,7 +52,7 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 \
 --------------------------------------
 
-##**Discussion et parallèles écologiques**
+## **Discussion et parallèles écologiques**
 \
 sgsf
 
