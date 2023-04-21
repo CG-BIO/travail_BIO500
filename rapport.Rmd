@@ -57,6 +57,9 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (figure 1). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. 
 \
 \
+INSÉRER LA FIGURE 1
+\
+\
 Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents. Tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes plus cela démontre une stabilité de la communauté [@martin_gonzalez_centrality_2010]. Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème sain. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes [@martin_gonzalez_centrality_2010]. Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimiser leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple. 
 \
 \
@@ -97,14 +100,10 @@ Dans un écosystème, un individu présent dans la communauté plus longtemps au
 
 # **Conclusion**
 \
-dvsd
+Bref, nous avons pu répondre à nos différentes questions d’analyse. Nous avons déterminé qu’une figure montrant la centralité était la meilleure façon de représenter le réseau d’interactions de la classe. De plus, nous avons observé quels étaient les individus ayant le plus d’interactions diversifiées dans la classe. Aussi, nous avons identifié un sous-groupe de 41 personnes qui semblaient être au centre des interactions entre les sous-groupes de la classe et ainsi obtenir une valeur de modularité. Finalement, nous avons analysé le nombre moyen d’interactions en fonction de l’année de début du baccalauréat et nous avons observé une tendance à la baisse selon le moment de l’arrivée de l’individu dans la communauté de la classe. Pour poursuivre cette étude, nous pourrions recueillir davantage de données sur le sexe des individus et déterminer si la psychologie des êtres humains influence leurs interactions selon les différents sexes.  
 \
 \
 \
-[@Dirac1953888]
-
-
-For detailed instructions regarding the elsevier article class, see   <https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions>
 
 ## Using CSL 
 
