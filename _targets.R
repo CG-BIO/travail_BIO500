@@ -35,17 +35,24 @@ list(
     command = fct_prep(import_donnees)
   ),
   
-    tar_target(
-   name = analyses,
-   command = fct_analyse(nettoyage)
-   ),
-
+  tar_target(
+    name = analyses,
+    command = fct_analyse(nettoyage)
+  )#,
   
+  
+  #tar_target(
+  #name = figures,
+  # command = fct_figures(analyses)
+  #)#,
   
   #tar_render(
   #  name = rapport, # Cible du rapport
   # path = "rapport.Rmd" # Le path du rapport à renderiser
   #)
 )
+
+
+
 
 
