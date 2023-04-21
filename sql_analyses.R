@@ -124,7 +124,7 @@ ON e.prenom_nom = c.etudiant1
 GROUP BY e.annee_debut;"
 moyenne_liens_annee <- dbGetQuery(con, sql_requete)
 moyenne_liens_annee
-
+write.csv(moyenne_liens_annee, file = "moyenne_liens_annee.csv", row.names=FALSE)
 
 return(fct_analyse)
 }
