@@ -40,10 +40,10 @@ list(
   tar_target(
   name = figures,
    command = fct_figures(analyses)
-  )#,
+  ),
   
-  #tar_render(
-  #  name = rapport, # Cible du rapport
-  # path = "rapport.Rmd" # Le path du rapport à renderiser
-  #)
+  tar_render(
+    name = rapport, # Cible du rapport
+   path = "rapport.Rmd" # Le path du rapport à renderiser
+  )
 )
