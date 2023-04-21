@@ -1,5 +1,5 @@
 
-fct_r <-function(){
+fct_r <-function(sql){
 # Calculer le nombre d'étudiants
 nrow(nb_liens) # 163 étudiants
 

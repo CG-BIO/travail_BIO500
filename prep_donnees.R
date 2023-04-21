@@ -369,9 +369,12 @@ fct_prep <- function(x){
   etudiant[etudiant == "bas-st-laurent"]<-'bas-saint-laurent'
   table(etudiant$region_administrative) # sans blasphemes
   
+  # Enregistrer les trois grandes bases de donnees ("cours", "collab", "etudiant") en .csv
+  write.csv(collab, file = "collab.csv", row.names=FALSE)
+  write.csv(etudiant, file = "etudiant.csv", row.names=FALSE)
+  write.csv(cours, file = "cours.csv", row.names=FALSE)
+  
   return(fct_prep)
 }
 
-
-funky<- unique(collab[collab$etudiant1,])
 

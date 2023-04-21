@@ -1,4 +1,4 @@
-fct_sql <- function () {
+fct_analyse <- function (nettoyage) {
 
   ## CREER LA BASE DE DONNEES
   
@@ -54,11 +54,6 @@ CREATE TABLE collab (
   ## INJECTER LES DONNEES
   
   
-  # Enregistrer les trois grandes bases de donnees ("cours", "collab", "etudiant") en .csv
-  write.csv(cours, file = "cours.csv", row.names=FALSE)
-  write.csv(collab, file = "collab.csv", row.names=FALSE)
-  write.csv(etudiant, file = "etudiant.csv", row.names=FALSE)
-  
   # Renommer les bases de donnees pour utiliser avec SQL (juste pour pas fuck up le chien)
   bd_cours <- read.csv(file = "cours.csv")
   bd_collab <- read.csv(file = "collab.csv")
@@ -101,5 +96,23 @@ head(nb_liens_paires)
 write.csv(nb_liens, file = "nb_liens.csv", row.names=FALSE)
 write.csv(nb_liens_paires, file = "nb_liens_paires.csv", row.names=FALSE)
 
-return(fct_sql)
+# Calculer le nombre d'étudiants
+nrow(nb_liens) # 163 étudiants
+
+# Calculer le nombre de liens
+sum(nb_liens_paires$nb_liens) # 3193
+
+# Connectance du réseau
+# Nombre de connexions existantes par rapport au nombre total de connexions possibles dans un réseau donné
+nrow(nb_liens) * nrow(nb_liens) # 26 569 connexions possibles
+connectance <- sum(nb_liens_paires$nb_liens) / (nrow(nb_liens) * nrow(nb_liens))
+connectance # 0.1201777
+
+# Nombre de liens moyens par étudiant
+moy_lien <- mean(nb_liens$nb_liens) # 19.6319
+var(nb_liens$nb_liens) # 580.3081
+
+
+return(fct_analyse)
 }
+
