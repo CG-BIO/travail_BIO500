@@ -36,23 +36,25 @@ list(
     command = fct_prep(import_donnees)
   )#,
   
+  #  tar_target(
+  # name = sql,
+  # command = fct_sql(nettoyage)
+  # ),
+  
   #tar_target(
-    #name = sql,
-   # command = fct_sql(nettoyage)
+  #name = analyses,
+  # command = fct_r(sql) 
   #),
   
   #tar_target(
-    #name = analyses,
-   # command = fct_r(sql) 
-  #),
-  
-  #tar_target(
-    #name = figures,
-   # command = fct_figures(analyses)
+  #name = figures,
+  # command = fct_figures(analyses)
   #)#,
   
   #tar_render(
   #  name = rapport, # Cible du rapport
-   # path = "rapport.Rmd" # Le path du rapport à renderiser
+  # path = "rapport.Rmd" # Le path du rapport à renderiser
   #)
 )
+
+
