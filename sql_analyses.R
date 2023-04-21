@@ -112,6 +112,19 @@ connectance # 0.1201777
 moy_lien <- mean(nb_liens$nb_liens) # 19.6319
 var(nb_liens$nb_liens) # 580.3081
 
+sql_requete <- "
+SELECT e.annee_debut, AVG(nb_liens) as moyenne_liens_annee
+FROM etudiant e
+LEFT JOIN (
+  SELECT etudiant1, COUNT(etudiant2) as nb_liens
+  FROM collab
+  GROUP BY etudiant1
+) c
+ON e.prenom_nom = c.etudiant1
+GROUP BY e.annee_debut;"
+moyenne_liens_annee <- dbGetQuery(con, sql_requete)
+moyenne_liens_annee
+
 
 return(fct_analyse)
 }
