@@ -9,6 +9,7 @@ library(visNetwork) #pour pouvoir utiliser la commande tar_glimpse (qui nous per
 source("prep_donnees.R")
 source("import_file.R")
 source("sql_analyses.R")
+source("graphiques.R")
 
 # Créer les tragets du criss
 tar_option_set(packages = c("rmarkdown","knitr"))
@@ -38,13 +39,13 @@ list(
     tar_target(
    name = analyses,
    command = fct_analyse(nettoyage)
-   )#,
+   ),
 
   
-  #tar_target(
-  #name = figures,
-  # command = fct_figures(analyses)
-  #)#,
+  tar_target(
+  name = figures,
+   command = fct_figures(analyses)
+  )#,
   
   #tar_render(
   #  name = rapport, # Cible du rapport

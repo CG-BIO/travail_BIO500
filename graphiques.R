@@ -1,7 +1,9 @@
 #codes pour les figures
 
-fct_figures <- function(){
+fct_figures <- function(analyses){
   ##### CRÉATION DE FIGURES
+  nb_liens <- read.csv(file = "nb_liens.csv")
+  nb_liens_paires <- read.csv(file = "nb_liens_paires.csv")
   
   ## Créer une matrice d'adjacence
   
@@ -123,76 +125,7 @@ fct_figures <- function(){
   # Calcul de la centralité
   eigen_centrality(g)$vector
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  ############################
-  # Calculer les clusters en utilisant la méthode de l'edge-betweenness
-  ebc <- cluster_edge_betweenness(g)
-  
-  # Définir les paramètres de la figure
-  plot_size <- 800
-  vertex_size <- 3
-  vertex_label_size <- 0.8 * vertex_size
-  edge_arrow_mode <- 0
-  vertex_frame_color <- NA
-  vertex_color <- heat.colors(length(unique(ebc$membership)))[ebc$membership]
-  
-  # Calculer la disposition des nœuds en utilisant la méthode de Fruchterman-Reingold
-  layout <- layout_with_fr(g, dim = 2, niter = 100, area = plot_size^2)
-  
-  # Dessiner le graphe avec les paramètres spécifiés
-  plot(g, layout = layout, vertex.label = NA, vertex.size = vertex_size, 
-       vertex.label.cex = vertex_label_size, edge.arrow.mode = edge_arrow_mode,
-       vertex.frame.color = vertex_frame_color, vertex.color = vertex_color)
-  
-  
-  
-  #####################
-  #Tentative bubble map
-  
-  sql_requete <- "
-SELECT e.region_administrative, AVG(nb_liens) as moyenne_liens
-FROM etudiant e
-LEFT JOIN (
-  SELECT etudiant1, COUNT(etudiant2) as nb_liens
-  FROM collab
-  GROUP BY etudiant1
-) c
-ON e.prenom_nom = c.etudiant1
-GROUP BY e.region_administrative
-ORDER BY moyenne_liens DESC;"
-  moyenne_liens <- dbGetQuery(con, sql_requete)
-  moyenne_liens
-  
-  
-  sql_requete <- "
-SELECT e.annee_debut, AVG(nb_liens) as moyenne_liens_annee
-FROM etudiant e
-LEFT JOIN (
-  SELECT etudiant1, COUNT(etudiant2) as nb_liens
-  FROM collab
-  GROUP BY etudiant1
-) c
-ON e.prenom_nom = c.etudiant1
-GROUP BY e.annee_debut;"
-  moyenne_liens_annee <- dbGetQuery(con, sql_requete)
-  moyenne_liens_annee
-  
+
   
   library(ggplot2)
   
@@ -206,14 +139,7 @@ GROUP BY e.annee_debut;"
     labs(x = "Année de début", y = "Nombre moyen de liens") + 
     ggtitle("Histogramme du nombre moyen de liens en fonction de l'année de début")
   
-  
-  
-  
-  
-  
-  
-  
-  ##### ESSAYER DE FAIRE LA BUBBLE MAP
+
   
   # Définir les coordonnées centrales pour les régions administratives manquantes
   region_administrative <- c("<NA>", "abitibi-temiscamingue", "bas-saint-laurent", 
