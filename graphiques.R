@@ -1,9 +1,8 @@
-#codes pour les figures
-
 fct_figures <- function(analyses){
   ##### CRÉATION DE FIGURES
   
   moyenne_liens_annee <- read.csv("moyenne_liens_annee.csv")
+  nb_liens_paires <- read.csv("nb_liens_paires.csv")
   
   ## Analyses pour les figures
   
