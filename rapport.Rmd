@@ -11,10 +11,7 @@ author:
     email: boif2411@usherbrooke.ca
 
 abstract: |
-  This is the abstract.Question d'analyse et de rechercheNous voulons regarder l'immigration et l'émigration ainsi que la dispersion au sein des différentes communautés de la classe. Analyse basée sur les spécialistes et généralistes OU introverties et extraverties ? On pourrait aussi comparer l'immigration comme étant un indicateur d'adaptation et de survie au niveau psychologique chez l'être humain. Exemple, l'être humain ne se reconnait pas ou vit un stress dans ses relations sociales (peu de compatibilité) alors il va migrer ailleurs.
- 
-
-  It consists of two paragraphs.
+  Les étude des réseaux écologiques des écosystèmes sont de plus en plus concrètes. Cependant, les parallèles avec les réseaux d’interactions sociales chez les êtres humains ont rarement été réalisé. Ainsi, nous avons décidé d’analyser la dynamique dans les interactions sociales d’une classe du baccalauréat en écologie. Suite à nos analyses, nous avons conclu qu’il y avait plusieurs similitudes entre les interactions humaines dans un écosystème scolaire et un écosystème naturel. L’une de ces comparaisons se situaient au niveau des individus des écosystèmes qui sont soient sédentaires ou mobiles et qui peuvent contribuer à la stabilité de l’écosystème de différentes façons. En effet, chez les êtres humains,  nous avons observé que différents individus de sous-groupes permettaient à la communauté d’avoir plus d’interactions sociales et donc de mener à une classe plus dynamique. 
 
 date: "`r Sys.Date()`"
 classoption: preprint, 3p, authoryear
