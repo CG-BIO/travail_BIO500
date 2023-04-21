@@ -2,10 +2,10 @@
 
 fct_figures <- function(analyses){
   ##### CRÉATION DE FIGURES
-  nb_liens <- read.csv(file = "nb_liens.csv")
-  nb_liens_paires <- read.csv(file = "nb_liens_paires.csv")
   
-  ## Créer une matrice d'adjacence
+  moyenne_liens_annee <- read.csv("moyenne_liens_annee.csv")
+  
+  ## Analyses pour les figures
   
   # Créer une liste unique des noms d'étudiants
   students <- unique(c(nb_liens_paires$etudiant1, nb_liens_paires$etudiant2))
@@ -29,7 +29,11 @@ fct_figures <- function(analyses){
   g <- graph_from_adjacency_matrix(L, mode = "undirected")
   
   
-  ## Créer la figure réseau (la meilleure)
+  
+  ## FIGURE 1: CENTRALITÉ (RÉSEAU)
+  
+  # Calcul de la centralité
+  eigen_centrality(g)$vector
   
   # Calculer le degré
   deg <- apply(L, 2, sum) + apply(L, 1, sum)
@@ -51,50 +55,13 @@ fct_figures <- function(analyses){
        layout = layout.kamada.kawai(g))
   
   
-  ## CRÉER LA FIGURE RÉSEAU SOUS FORME DE CERCLE
-  
-  # Faire un code de taille
-  col.vec <- seq(10, 25, length.out = length(rk))
-  
-  # Attribuer aux noeuds la taille
-  V(g)$size = col.vec[rk]
-  
-  # Refaire la figure
-  
-  plot(g, vertex.label=NA, edge.arrow.mode = 0,
-       vertex.frame.color = NA,
-       layout = layout.circle(g))
-  
-  
-  ## CRÉER LA FIGURE DE MODULARITÉ
-  
-  # Évalue la présence communautés dans le graphe
-  wtc = walktrap.community(g)
-  
-  # Calcul de la modularité
-  modularity(wtc) # 0.427854
-  
-  distances(g)
-  
-  ebc <- cluster_edge_betweenness(g)
-  plot(ebc, g, vertex.label = NA, vertex.size = 0, edge.arrow.mode = 0, 
-       vertex.frame.color = NA, layout = layout.fruchterman.reingold(g), edge.color = "blue")
-  
-  plot(ebc, g, vertex.label = students, vertex.label.cex=0.2, vertex.size = 5, edge.arrow.mode = 0, 
-       vertex.frame.color = NA, layout = layout.fruchterman.reingold(g), edge.color = "white", )
-  
-  
-  
-  
-  communities(wtc)
-  table(communities)
-  
-  
-  
+  ## FIGURE 2: MODULARITÉ
   
   # Identifier les communautés
   wtc <- walktrap.community(g)
   communities <- membership(wtc)
+  communities(wtc)
+  table(communities)
   
   # Trouver les communautés à une seule personne
   comm_sizes <- table(communities)
@@ -112,20 +79,8 @@ fct_figures <- function(analyses){
        layout = layout.fruchterman.reingold(g_no_singletons), edge.width = 0)
   
   
-  
-  # Extrait les communautés identifiées par l'algorithme de la betweenness des arêtes
-  communities <- membership(ebc)
-  
-  # Affiche le nombre de nœuds dans chaque communauté
-  table(communities)
-  
-  
-  ## CRÉER LA FIGURE DE CENTRALITÉ
-  
-  # Calcul de la centralité
-  eigen_centrality(g)$vector
-  
-
+  # FIGURE 3: HISTOGRAMME (moyenne liens par étudiant selon l'année de début de programme)
+  moyenne_liens_annee <- read.csv("moyenne_liens_annee.csv")
   
   library(ggplot2)
   
@@ -138,79 +93,6 @@ fct_figures <- function(analyses){
     geom_bar(stat = "identity", fill = "steelblue") + 
     labs(x = "Année de début", y = "Nombre moyen de liens") + 
     ggtitle("Histogramme du nombre moyen de liens en fonction de l'année de début")
-  
-
-  
-  # Définir les coordonnées centrales pour les régions administratives manquantes
-  region_administrative <- c("<NA>", "abitibi-temiscamingue", "bas-saint-laurent", 
-                             "capitale-nationale", "centre-du-quebec", "estrie", 
-                             "gaspesie_iles_de_la_madeleine", "lanaudiere", 
-                             "laurentides", "laval", "mauricie", "monteregie", 
-                             "montreal", "outaouais", "saguenay-lac-saint-jean")
-  
-  latitude <- c(NA, 47.6762, 48.130000, 46.804520, 46.060960, 45.468429,
-                48.831779, 46.400002, 46.833328, 45.569611, 46.535828, 45.374168,
-                45.508839, 45.839221, 48.666672)
-  
-  longitude <- c(NA, -78.7516, -68.449722, -71.242310, -72.739030, -71.822998,
-                 -64.483276, -73.500000, -74.000000, -73.692223, -72.749977, -73.505005,
-                 -73.587807, -76.666664, -71.250000)
-  
-  coord_centrales <- data.frame(region_administrative, latitude, longitude)
-  coord_centrales <- coord_centrales[complete.cases(coord_centrales), ]
-  coord_centrales
-  
-  library(leaflet)
-  library(dplyr)
-  
-  # Supprimer les lignes contenant des NA
-  coord_centrales <- coord_centrales %>% na.omit()
-  
-  # Joindre les données des liens par région
-  liens_region <- data.frame(region_administrative = c("abitibi-temiscamingue", "bas-saint-laurent", 
-                                                       "capitale-nationale", "centre-du-quebec", "estrie", 
-                                                       "gaspesie_iles_de_la_madeleine", "lanaudiere", 
-                                                       "laurentides", "laval", "mauricie", "monteregie", 
-                                                       "montreal", "outaouais", "saguenay-lac-saint-jean"),
-                             moyenne_liens = c(66, 36, 45, 67, 45.9, 77, 1.5, 53.333333, 53, 65, 55.3125, 49.5, 37, 61))
-  
-  coord_centrales_liens <- left_join(coord_centrales, liens_region, by = "region_administrative")
-  
-  # Create a leaflet map centered on Quebec
-  m <- leaflet() %>% 
-    setView(lng = -71.208282, lat = 46.813878, zoom = 7)
-  
-  
-  # Add markers for each region administrative with link data
-  m %>% addTiles() %>% 
-    addCircleMarkers(data = coord_centrales_liens, 
-                     lng = ~longitude, lat = ~latitude,
-                     radius = 5000, # ajuster le rayon du cercle selon vos besoins
-                     stroke = FALSE, # retirer la bordure des cercles
-                     fillOpacity = 0.7, # ajuster l'opacité du remplissage
-                     popup = ~paste(region_administrative, "<br>",
-                                    "Moyenne de liens:", moyenne_liens)) %>% 
-    addLabelOnlyMarkers(data = coord_centrales_liens,
-                        lng = ~longitude, lat = ~latitude,
-                        label = ~moyenne_liens, # utiliser les valeurs de moyenne_liens pour les étiquettes
-                        labelOptions = labelOptions(noHide = TRUE,
-                                                    direction = "center",
-                                                    textOnly = TRUE,
-                                                    offset = c(0, 0)), # ajuster la position des étiquettes
-                        radius = 0) # retirer les cercles pour ne garder que les étiquettes
-  
-  
-  #### HISTOGRAMME NOMBRE DE LIENS MOYENS PAR RÉGION ADMINISTRATIVE
-  # Tri des régions administratives en ordre décroissant de liens moyens
-  moyenne_liens <- moyenne_liens[order(moyenne_liens$moyenne_liens, decreasing = TRUE),]
-  
-  # Création du graphique avec gradient de couleurs
-  ggplot(data = moyenne_liens, aes(x = reorder(region_administrative, -moyenne_liens), y = moyenne_liens, fill = moyenne_liens)) +
-    geom_bar(stat = "identity") +
-    scale_fill_gradient(low = "lightblue", high = "darkblue") +
-    labs(x = "Région administrative", y = "Moyenne de liens par étudiant",
-         title = "Histogramme de la moyenne de liens par étudiant en fonction de la région administrative")
-  
   
   return(fct_figures)
 }
