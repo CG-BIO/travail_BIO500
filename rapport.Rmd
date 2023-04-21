@@ -110,23 +110,6 @@ Bref, nous avons pu répondre à nos différentes questions d’analyse. Nous av
 If `citation_package` is set to `default` in `elsevier_article()`, then pandoc is used for citations instead of `natbib`. In this case, the `csl` option is used to format the references. Alternative `csl` files are available from <https://www.zotero.org/styles?q=elsevier>. These can be downloaded
 and stored locally, or the url can be used as in the example header.
 
-# Equations
-
-Here is an equation:
-$$ 
-  f_{X}(x) = \left(\frac{\alpha}{\beta}\right)
-  \left(\frac{x}{\beta}\right)^{\alpha-1}
-  e^{-\left(\frac{x}{\beta}\right)^{\alpha}}; 
-  \alpha,\beta,x > 0 .
-$$
-
-Here is another:
-\begin{align}
-  a^2+b^2=c^2.
-\end{align}
-
-Inline equations: $\sum_{i = 2}^\infty\{\alpha_i^\beta\}$
-
 # Figures and tables
 
 Figure \ref{fig2} is generated using an R chunk.
