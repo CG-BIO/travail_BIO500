@@ -62,7 +62,9 @@ Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les i
 \
 D’ailleurs, les points situés au pourtours sont des externalités, que nous ne considérons pas dans ce cas-ci puisqu’il s’agit pour la grande majorité d’individus n’étant pas inclus dans la population de la classe. D’un point de vue biologique, il s’agirait d’individus ayant passé dans la communauté et étant reparti par la suite (immigration/émigration et migration saisonnière).
 \
--------------------------------
+\
+--------------------
+\
 \
 Pour poursuivre, la modularité est définie par un groupe de nœuds (individus) interagissant ensemble plus souvent qu’avec les autres individus de la communauté [@gauzens_trophic_2015]. Ainsi, cela crée des sous-population dans un écosystème [@gauzens_trophic_2015]. Ces sous-groupes permettent de ralentir l’extinctions et la diminution des populations des espèces de la communauté [@stouffer_compartmentalization_2011]. Plus les sous-groupes auront d’interactions, plus la résistance à l’extinction sera forte [@stouffer_compartmentalization_2011].  En d’autres mots, une modularité plus élevée permettra à la communauté de développer une meilleure stabilité et davantage de processus biologiques améliorant son fonctionnement grâce aux interactions interspécifiques [@olesen_modularity_2007]. D’ailleurs, plus nous aurons de sous-population d’individus dans la communauté, plus nous aurons un potentiel élevé de coévolution entre les espèces [@olesen_modularity_2007]. 
 \
@@ -74,6 +76,21 @@ INSÉRER LA FIGURE 2
 \
 \
 Il semble y avoir un sous-groupe central (en rouge), de 41 individus, ayant beaucoup d’interactions avec d’autres sous-groupes. D’ailleurs, ce serait probablement cette sous-population qui participe le plus aux interactions sociales de la classe. En termes d’interactions humaines, nous pourrions conclure que ce sous-groupe permet à la communauté de la classe d’être stable et pourrait mener à l’unicité de la communauté. De plus, cette analyse nous permet également d’observer quelles sont les interactions amicales les plus fortes et s’il y a des sous-groupes exclus de la communauté. Nous pouvons observer sur la figure 2, qu’il y a (indiquer le nb….) sous-groupe qui semble exclus. 
+\
+\
+--------------------
+\
+\
+Finalement, pour la représentation du nombre de liens moyens et en fonction de la session d’arrivée des individus de la classe, nous avons décidé de représenter le tout dans un histogramme. Ainsi, la relation que nous devrions obtenir est une diminution constante des bandes de la gauche vers la droite dans le graphique, car plus les individus sont dans la communauté de la classe depuis longtemps, plus le nombre de liens devraient être grand. Comme nous pouvons le voir dans la figure suivante, nous avons quelques variations dans notre graphique : 
+\
+\
+INSÉRER LA FIGURE 3
+\
+\
+En effet, le nombre total de lien ne devrait pas être plus bas à la session de l’automne 2019 ainsi qu’à l’hiver 2020 en comparaison avec les sessions qui suivent. Cela peut être expliqué par une trop petite taille de la population (puisqu’il s’agit d’une moyenne). Nous pourrions également expliquer cette diminution à l’aide des dynamiques sociales entre les êtres humains. En effet, malgré une présence plus longue dans la communauté, un individu plus introverti aura une participation plus faible au réseau d’interactions. 
+\
+\
+Dans un écosystème, un individu présent dans la communauté plus longtemps aura en effet plus de chances de contribuer au réseau d’interactions et stabiliser l’écosystème. En effet, prenons un mâle qui cherche à se reproduire. Celui-ci, au fur et à mesure des années, contribuera de plus en plus au patrimoine génétique de la population. Il va en même temps avoir l’occasion d’interagir avec plus d’espèces que ce soit par prédation ou par une relation de coexistence. Cependant, un individu mobile ou encore sur son passage migratoire ne fera qu’une présence ponctuelle dans l’écosystème et n’aura pas d’impacts sur cet écosystème. 
 \
 \
 --------------------------------------------------------------------------------
