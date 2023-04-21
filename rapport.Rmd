@@ -30,7 +30,7 @@ output:
 ---
 # **Introduction**
 \
-Les dynamiques des réseaux écologiques sont souvent très complexes à analyser (source 1). Cependant, lorsqu'on essaie de faire un parallère avec nos relations sociales, avec nous, les êtres humains, nous réalisons que nous ne sommes pas si différents autres animaux. Dans le cadre d'une analyse des relations de collaboration de travail au sein d'une classe du baccalauréat en écologie, nous avons tenté d'éclaircir celles-ci. Nous nous sommes concentrés sur les questions d'analyses suivantes (source 1) : 
+Les dynamiques des réseaux écologiques sont souvent très complexes à analyser [@delmas_analysing_2019]. Cependant, lorsqu'on essaie de faire un parallère avec nos relations sociales, avec nous, les êtres humains, nous réalisons que nous ne sommes pas si différents autres animaux. Dans le cadre d'une analyse des relations de collaboration de travail au sein d'une classe du baccalauréat en écologie, nous avons tenté d'éclaircir celles-ci. Nous nous sommes concentrés sur les questions d'analyses suivantes [@delmas_analysing_2019] : 
 \
 
 * Quelle représentation graphique représenterait le mieux les interactions sociales ? 
@@ -54,13 +54,13 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 
 ## **Discussion et parallèles écologiques**
 \
-Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (figure 1). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté (source 2). 
+Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (figure 1). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. 
 \
 \
-Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents. Tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes plus cela démontre une stabilité de la communauté (source 2). Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème sain. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes (source 2). Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimiser leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple. 
+Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents. Tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes plus cela démontre une stabilité de la communauté [@martin_gonzalez_centrality_2010]. Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème sain. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes [@martin_gonzalez_centrality_2010]. Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimiser leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple. 
 \
 \
-D’ailleurs, les points situé au pourtours sont des externalités, que nous ne considérons pas dans ce cas-ci puisqu’il s’agit pour la grande majorité d’individus n’étant pas inclus dans la population de la classe. 
+D’ailleurs, les points situés au pourtours sont des externalités, que nous ne considérons pas dans ce cas-ci puisqu’il s’agit pour la grande majorité d’individus n’étant pas inclus dans la population de la classe. D’un point de vue biologique, il s’agirait d’individus ayant passé dans la communauté et étant reparti par la suite (immigration/émigration et migration saisonnière).
 \
 \
 --------------------------------------
