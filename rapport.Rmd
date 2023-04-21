@@ -25,6 +25,12 @@ output:
     keep_tex: true
     citation_package: natbib
 ---
+
+
+```{r}
+figures <- tar_read(figures)
+```
+
 # **Introduction**
 \
 Les dynamiques des réseaux écologiques sont souvent très complexes à analyser [@delmas_analysing_2019]. Cependant, lorsqu'on essaie de faire un parallère avec nos relations sociales, avec nous, les êtres humains, nous réalisons que nous ne sommes pas si différents autres animaux. Dans le cadre d'une analyse des relations de collaboration de travail au sein d'une classe du baccalauréat en écologie, nous avons tenté d'éclaircir celles-ci. Nous nous sommes concentrés sur les questions d'analyses suivantes [@delmas_analysing_2019] : 

@@ -1,4 +1,3 @@
-
 # Charger les packages
 library(targets)
 library(tarchetypes)
@@ -7,7 +6,6 @@ library(visNetwork) #pour pouvoir utiliser la commande tar_glimpse (qui nous per
 # Importer les fichiers sources
 
 source("prep_donnees.R")
-source("import_file.R")
 source("sql_analyses.R")
 source("graphiques.R")
 
@@ -36,7 +34,6 @@ list(
     command = fct_analyse(nettoyage)
   ),
   
-  
   tar_target(
   name = figures,
    command = fct_figures(analyses)
@@ -47,3 +44,4 @@ list(
    path = "rapport.Rmd" # Le path du rapport à renderiser
   )
 )
+
