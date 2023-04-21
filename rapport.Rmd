@@ -54,7 +54,13 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 
 ## **Discussion et parallèles écologiques**
 \
-sgsf
+Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (figure 1). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté (source 2). 
+\
+\
+Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents. Tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes plus cela démontre une stabilité de la communauté (source 2). Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème sain. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes (source 2). Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimiser leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple. 
+\
+\
+D’ailleurs, les points situé au pourtours sont des externalités, que nous ne considérons pas dans ce cas-ci puisqu’il s’agit pour la grande majorité d’individus n’étant pas inclus dans la population de la classe. 
 \
 \
 --------------------------------------
