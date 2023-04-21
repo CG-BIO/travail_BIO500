@@ -18,7 +18,7 @@ abstract: |
 
 date: "`r Sys.Date()`"
 classoption: preprint, 3p, authoryear
-bibliography: Sources_rapport.bib
+bibliography: mybibfile.bib
 linenumbers: false
 numbersections: false
 # Use a CSL with `citation_package = "default"`
@@ -35,7 +35,7 @@ Les dynamiques des réseaux écologiques sont souvent très complexes à analyse
 
 * Quelle représentation graphique représenterait le mieux les interactions sociales ? 
 * Quelles sont les individus ayant le plus d’interactions dans le réseau et ayant une importance accrue (centralité) ? 
-* Quels sont les liens entre les différents regroupements d’individus (étant en interactions les uns avec les autres au sein du réseau) (modularité) ?  p.22
+* Quels sont les liens entre les différents regroupements d’individus (étant en interactions les uns avec les autres au sein du réseau) (modularité) ?
 * Est-ce que l’année de début du programme influence le nombre moyen d’interactions des individus ? 
 
 \
