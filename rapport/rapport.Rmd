@@ -32,6 +32,8 @@ output:
 # Charger le package
 library(igraph)
 library(ggplot2)
+library(knitr)
+library(bookdown)
 
 figures <- tar_read(figures)
 
@@ -69,10 +71,11 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 
 ## **Discussion et parallèles écologiques**
 \
-Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (figure 1). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. 
+Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (Figure \ref{fig:plot1}). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. 
 \
 \
-```{r, echo=F}
+```{r figs, , fig.cap="\\label{fig:plot1}Centralité.", fig.width=7, fig.height=6}
+
 ## FIGURE 1: CENTRALITÉ (RÉSEAU)
 
 plot(g, vertex.label=NA, edge.arrow.mode = 0,
