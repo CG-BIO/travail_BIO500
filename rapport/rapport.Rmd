@@ -11,7 +11,7 @@ author:
     email: boif2411@usherbrooke.ca
 
 abstract: |
-  Les étude des réseaux écologiques des écosystèmes sont de plus en plus concrètes. Cependant, les parallèles avec les réseaux d’interactions sociales chez les êtres humains ont rarement été réalisé. Ainsi, nous avons décidé d’analyser la dynamique dans les interactions sociales d’une classe du baccalauréat en écologie. Suite à nos analyses, nous avons conclu qu’il y avait plusieurs similitudes entre les interactions humaines dans un écosystème scolaire et un écosystème naturel. L’une de ces comparaisons se situaient au niveau des individus des écosystèmes qui sont soient sédentaires ou mobiles et qui peuvent contribuer à la stabilité de l’écosystème de différentes façons. En effet, chez les êtres humains,  nous avons observé que différents individus de sous-groupes permettaient à la communauté d’avoir plus d’interactions sociales et donc de mener à une classe plus dynamique. 
+  Les études de réseaux écologiques des écosystèmes sont de plus en plus concrets. Cependant, les parallèles avec les réseaux d’interactions sociales chez les êtres humains ont rarement été réalisés. Ainsi, nous avons décidé d’analyser la dynamique dans les interactions sociales d’une classe du baccalauréat en écologie à l'Université de Sherbrooke. Suite à nos analyses, nous avons conclu qu’il y avait plusieurs similitudes entre les interactions humaines dans un écosystème scolaire et un écosystème naturel. L’une de ces comparaisons se situaient au niveau des individus des écosystèmes qui sont soient sédentaires ou mobiles et qui peuvent contribuer à la stabilité de l’écosystème de différentes façons. En effet, chez les êtres humains, nous avons observé que différents individus de sous-groupes permettaient à la communauté d’avoir plus d’interactions sociales et donc de mener à une classe plus dynamique.
 
 date: "`r Sys.Date()`"
 classoption: preprint, 3p, authoryear
@@ -49,11 +49,11 @@ moyenne_liens_annee <- figures[[4]]
 
 # **Introduction**
 \
-Les dynamiques des réseaux écologiques sont souvent très complexes à analyser [@delmas_analysing_2019]. Cependant, lorsqu'on essaie de faire un parallère avec nos relations sociales, avec nous, les êtres humains, nous réalisons que nous ne sommes pas si différents autres animaux. Dans le cadre d'une analyse des relations de collaboration de travail au sein d'une classe du baccalauréat en écologie, nous avons tenté d'éclaircir celles-ci. Nous nous sommes concentrés sur les questions d'analyses suivantes [@delmas_analysing_2019] : 
+Les dynamiques des réseaux écologiques sont souvent très complexes à analyser [@delmas_analysing_2019]. Cependant, lorsqu'on essaie de faire un parallèle avec nos relations sociales, avec nous, les êtres humains, nous réalisons que nous ne sommes pas si différents des autres animaux. Dans le cadre d'une analyse de relations de collaborations d'équipe au sein d'une classe du baccalauréat en écologie, nous avons tenté d'éclaircir celles-ci. Nous nous sommes concentrés sur les questions d'analyses suivantes [@delmas_analysing_2019] : 
 \
 
 * Quelle représentation graphique représenterait le mieux les interactions sociales ? 
-* Quelles sont les individus ayant le plus d’interactions dans le réseau et ayant une importance accrue (centralité) ? 
+* Quels sont les individus ayant le plus d’interactions dans le réseau et ayant une importance accrue (centralité) ? 
 * Quels sont les liens entre les différents regroupements d’individus (étant en interactions les uns avec les autres au sein du réseau) (modularité) ?
 * Est-ce que l’année de début du programme influence le nombre moyen d’interactions des individus ? 
 
@@ -65,6 +65,9 @@ Ces questions seront étudiées en mettant en relation les différents concepts 
 
 ## **Méthode d'analyse et résultats**
 \
+L'étude comprenait à la base 30 fichiers de données: 10 comprenant des informations sur les étudiants, 10  comprenant des informations sur les cours et 10 comprenant des informations sur les différentes collaborations. D'abord, les données ont été importées et nettoyées dans un fichier "prep_donnees.R". Cet import corrigeait les noms de colonnes et de lignes en plus de combiner les fichiers du même type (étudiant, cours, collaboration).
+
+
 Imbriquer le texte d'analyse ici ainsi que la présentation de principaux résultats. 
 Il faut aussi ajouter quelques exemples de codes pertinents. 
 \
@@ -73,7 +76,7 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 
 ## **Discussion et parallèles écologiques**
 \
-Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (Figure \ref{fig:centralite}). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. 
+Tout d’abord, après avoir étudié plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation graphique (figure \ref{fig:centralite}). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. Dans notre cas, la centralité correspond au degré d'influence d'un individu au sein du réseau d'interactions de la classe.
 \
 \
 ```{r figs, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:centralite}"}
@@ -88,28 +91,23 @@ layout = layout.kamada.kawai(g))
 **Figure \ref{fig:centralite}.** Centralité du réseau
 \
 \
-Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents. Tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes plus cela démontre une stabilité de la communauté [@martin_gonzalez_centrality_2010]. Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème sain. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes [@martin_gonzalez_centrality_2010]. Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimiser leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple. 
+Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents, tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes, plus cela démontre une stabilité de la communauté [@martin_gonzalez_centrality_2010]. Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème stable. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes [@martin_gonzalez_centrality_2010]. Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimisé leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple.
 \
 \
-D’ailleurs, les points situés au pourtours sont des externalités, que nous ne considérons pas dans ce cas-ci puisqu’il s’agit pour la grande majorité d’individus n’étant pas inclus dans la population de la classe. D’un point de vue biologique, il s’agirait d’individus ayant passé dans la communauté et étant reparti par la suite (immigration/émigration et migration saisonnière).
+D’ailleurs, les points situés aux pourtours sont des externalités, que nous ne considérons pas dans ce cas-ci puisqu’il s’agit pour la grande majorité d’individus n’étant pas inclus dans la population de la classe. D’un point de vue biologique, il s’agirait d’individus ayant passé dans la communauté et étant repartis par la suite (immigration/émigration et migration saisonnière).
 \
 \
 --------------------
 \
 \
-Pour poursuivre, la modularité est définie par un groupe de nœuds (individus) interagissant ensemble plus souvent qu’avec les autres individus de la communauté [@gauzens_trophic_2015]. Ainsi, cela crée des sous-population dans un écosystème [@gauzens_trophic_2015]. Ces sous-groupes permettent de ralentir l’extinctions et la diminution des populations des espèces de la communauté [@stouffer_compartmentalization_2011]. Plus les sous-groupes auront d’interactions, plus la résistance à l’extinction sera forte [@stouffer_compartmentalization_2011].  En d’autres mots, une modularité plus élevée permettra à la communauté de développer une meilleure stabilité et davantage de processus biologiques améliorant son fonctionnement grâce aux interactions interspécifiques [@olesen_modularity_2007]. D’ailleurs, plus nous aurons de sous-population d’individus dans la communauté, plus nous aurons un potentiel élevé de coévolution entre les espèces [@olesen_modularity_2007]. 
+Pour poursuivre, la modularité est définie par un groupe de nœuds (individus) interagissant ensemble plus souvent qu’avec les autres individus de la communauté [@gauzens_trophic_2015]. Ainsi, cela crée des sous-populations dans un écosystème [@gauzens_trophic_2015]. Ces sous-groupes permettent de ralentir l’extinction et la diminution des populations des espèces de la communauté [@stouffer_compartmentalization_2011]. Plus les sous-groupes auront d’interactions, plus la résistance à l’extinction sera forte [@stouffer_compartmentalization_2011]. En d’autres mots, une modularité plus élevée permettra à la communauté de développer une meilleure stabilité et davantage de processus biologiques améliorant son fonctionnement grâce aux interactions interspécifiques [@olesen_modularity_2007]. D’ailleurs, plus nous aurons de sous-populations d’individus dans la communauté, plus nous aurons un potentiel élevé de coévolution entre les espèces [@olesen_modularity_2007]. 
 \
 \
-La valeur que nous avions obtenue pour la modularité est la suivante (…). Nous pouvons observer dans la figure suivante les différents sous-groupes d’individus de la classe: 
+La valeur obtenue pour la modularité est de 0.43. Nous pouvons observer dans la figure \ref{fig:modularite} les différents sous-groupes d’individus de la classe, où les noeuds (étudiants) appartenant à un même sous-groupe sont de la même couleur et où chaque sous-groupe est entouré d'une couleur différente.
 \
 \
 ```{r, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:modularite}"}
 ## FIGURE 2: MODULARITÉ
-
-plot(wtc_no_singletons, g_no_singletons, vertex.label = NA, vertex.size = 0,
-     edge.arrow.mode = 0, vertex.frame.color = NA, 
-     layout = layout.fruchterman.reingold(g_no_singletons), edge.width = 0)
-
 
 plot(wtc_no_singletons, g_no_singletons, vertex.label = NA,
      vertex.size = 2.5, edge.arrow.mode = 0, vertex.frame.color = NA,
@@ -120,13 +118,14 @@ plot(wtc_no_singletons, g_no_singletons, vertex.label = NA,
 **Figure \ref{fig:modularite}.** Communautés présentes à l'intérieur du réseau (modularité).
 \
 \
-Il semble y avoir un sous-groupe central (en rouge), de 41 individus, ayant beaucoup d’interactions avec d’autres sous-groupes. D’ailleurs, ce serait probablement cette sous-population qui participe le plus aux interactions sociales de la classe. En termes d’interactions humaines, nous pourrions conclure que ce sous-groupe permet à la communauté de la classe d’être stable et pourrait mener à l’unicité de la communauté. De plus, cette analyse nous permet également d’observer quelles sont les interactions amicales les plus fortes et s’il y a des sous-groupes exclus de la communauté. Nous pouvons observer sur la figure \ref{fig:modularite}, qu’il y a (indiquer le nb….) sous-groupe qui semble exclus. 
+En excluant les individus solos (absents de la figure \ref{fig:modularite}), il y a 16 communautés distinctes, la plus large étant formée de 49 individus. Cete communauté a beaucoup d’interactions avec d’autres sous-groupes. D’ailleurs, ce serait probablement cette sous-population qui participe le plus aux interactions sociales de la classe. En termes d’interactions humaines, nous pourrions conclure que ce sous-groupe permet à la communauté de la classe d’être stable et pourrait mener à l’unicité de la communauté. De plus, cette analyse nous permet également d’observer quelles sont les interactions amicales les plus fortes et s’il y a des sous-groupes exclus de la communauté. À ce titre, nous pouvons d'ailleurs observer 7 sous-groupes qui se démarquent par leur petite taille et leur position limitrophe sur la figure \ref{fig:modularite}. 
+
 \
 \
 --------------------
 \
 \
-Finalement, pour la représentation du nombre de liens moyens et en fonction de la session d’arrivée des individus de la classe, nous avons décidé de représenter le tout dans un histogramme. Ainsi, la relation que nous devrions obtenir est une diminution constante des bandes de la gauche vers la droite dans le graphique, car plus les individus sont dans la communauté de la classe depuis longtemps, plus le nombre de liens devraient être grand. Comme nous pouvons le voir dans la figure suivante, nous avons quelques variations dans notre figure \ref{fig:histogramme} : 
+Finalement, pour la représentation du nombre de liens moyens et en fonction de la session d’arrivée des individus de la classe, nous avons décidé de représenter le tout dans un histogramme. Ainsi, la relation que nous devrions obtenir est une diminution constante des bandes de la gauche vers la droite dans le graphique, car plus les individus sont dans la communauté de la classe depuis longtemps, plus le nombre de liens devraient être élevé. Comme nous pouvons le voir dans la figure suivante, nous avons quelques variations dans notre figure \ref{fig:histogramme} : 
 \
 \
 ```{r, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:histogramme}"}
@@ -164,14 +163,14 @@ ggplot(moyenne_liens_annee, aes(x = annee_debut, y = moyenne_liens_annee, fill =
 En effet, le nombre total de lien ne devrait pas être plus bas à la session de l’automne 2019 ainsi qu’à l’hiver 2020 en comparaison avec les sessions qui suivent. Cela peut être expliqué par une trop petite taille de la population (puisqu’il s’agit d’une moyenne). Nous pourrions également expliquer cette diminution à l’aide des dynamiques sociales entre les êtres humains. En effet, malgré une présence plus longue dans la communauté, un individu plus introverti aura une participation plus faible au réseau d’interactions. 
 \
 \
-Dans un écosystème, un individu présent dans la communauté plus longtemps aura en effet plus de chances de contribuer au réseau d’interactions et stabiliser l’écosystème. En effet, prenons un mâle qui cherche à se reproduire. Celui-ci, au fur et à mesure des années, contribuera de plus en plus au patrimoine génétique de la population. Il va en même temps avoir l’occasion d’interagir avec plus d’espèces que ce soit par prédation ou par une relation de coexistence. Cependant, un individu mobile ou encore sur son passage migratoire ne fera qu’une présence ponctuelle dans l’écosystème et n’aura pas d’impacts sur cet écosystème. 
+Dans un écosystème, un individu présent dans la communauté plus longtemps aura en effet plus de chances de contribuer au réseau d’interactions et stabiliser l’écosystème. En effet, prenons un mâle qui cherche à se reproduire. Celui-ci, au fur et à mesure des années, contribuera de plus en plus au patrimoine génétique de la population. Il va en même temps avoir l’occasion d’interagir avec plus d’espèces que ce soit par prédation ou par une relation de coexistence. Cependant, un individu mobile ou encore sur son passage migratoire ne fera qu’une présence ponctuelle dans l’écosystème et n’aura pas d’impact sur cet écosystème. 
 \
 \
 --------------------------------------------------------------------------------
 
 # **Conclusion**
 \
-Bref, nous avons pu répondre à nos différentes questions d’analyse. Nous avons déterminé qu’une figure montrant la centralité était la meilleure façon de représenter le réseau d’interactions de la classe. De plus, nous avons observé quels étaient les individus ayant le plus d’interactions diversifiées dans la classe. Aussi, nous avons identifié un sous-groupe de 41 personnes qui semblaient être au centre des interactions entre les sous-groupes de la classe et ainsi obtenir une valeur de modularité. Finalement, nous avons analysé le nombre moyen d’interactions en fonction de l’année de début du baccalauréat et nous avons observé une tendance à la baisse selon le moment de l’arrivée de l’individu dans la communauté de la classe. Pour poursuivre cette étude, nous pourrions recueillir davantage de données sur le sexe des individus et déterminer si la psychologie des êtres humains influence leurs interactions selon les différents sexes.  
+Bref, nous avons pu répondre à nos différentes questions d’analyse. Nous avons déterminé qu’une figure montrant la centralité était la meilleure façon de représenter le réseau d’interactions de la classe. De plus, nous avons observé quels étaient les individus ayant le plus d’interactions diversifiées dans la classe. Aussi, nous avons identifié un sous-groupe de 49 personnes qui semblaient être au centre des interactions entre les sous-groupes de la classe et nous avons obtenu une valeur de modularité de 0.43. Finalement, nous avons analysé le nombre moyen d’interactions en fonction de l’année de début du baccalauréat et nous avons observé une tendance à la baisse selon le moment de l’arrivée de l’individu dans la communauté de la classe. Pour poursuivre cette étude, nous pourrions recueillir davantage de données sur le sexe des individus et déterminer si la psychologie des êtres humains influence leurs interactions selon les différents sexes.  
 \
 \
 \
