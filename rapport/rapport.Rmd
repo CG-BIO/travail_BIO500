@@ -110,8 +110,14 @@ plot(wtc_no_singletons, g_no_singletons, vertex.label = NA, vertex.size = 0,
      edge.arrow.mode = 0, vertex.frame.color = NA, 
      layout = layout.fruchterman.reingold(g_no_singletons), edge.width = 0)
 
+
+plot(wtc_no_singletons, g_no_singletons, vertex.label = NA,
+     vertex.size = 2.5, edge.arrow.mode = 0, vertex.frame.color = NA,
+     layout = layout.fruchterman.reingold(g_no_singletons), 
+     vertex.color = rainbow(length(communities)), edge.color=NA)
+
 ```
-**Figure \ref{fig:modularite}.** Modularité du réseau
+**Figure \ref{fig:modularite}.** Communautés présentes à l'intérieur du réseau (modularité).
 \
 \
 Il semble y avoir un sous-groupe central (en rouge), de 41 individus, ayant beaucoup d’interactions avec d’autres sous-groupes. D’ailleurs, ce serait probablement cette sous-population qui participe le plus aux interactions sociales de la classe. En termes d’interactions humaines, nous pourrions conclure que ce sous-groupe permet à la communauté de la classe d’être stable et pourrait mener à l’unicité de la communauté. De plus, cette analyse nous permet également d’observer quelles sont les interactions amicales les plus fortes et s’il y a des sous-groupes exclus de la communauté. Nous pouvons observer sur la figure \ref{fig:modularite}, qu’il y a (indiquer le nb….) sous-groupe qui semble exclus. 

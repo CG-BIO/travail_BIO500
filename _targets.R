@@ -9,7 +9,7 @@ source("./R/analyses.R")
 source("./R/figures.R")
 
 # Charger les autres packages
-tar_option_set(packages = c("rmarkdown","knitr", "igraph", "ggplot2", "pandoc"))
+tar_option_set(packages = c("rmarkdown","knitr", "pandoc"))
 
 list(
   
@@ -48,3 +48,4 @@ list(
     path = "./rapport/rapport.Rmd", # Le path du rapport à render
   )
 )
+tar_make()
