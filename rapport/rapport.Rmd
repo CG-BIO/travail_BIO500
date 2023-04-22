@@ -24,6 +24,7 @@ output:
   rticles::elsevier_article:
     keep_tex: true
     citation_package: natbib
+    fig_caption: true
 ---
 
 
@@ -34,6 +35,7 @@ library(igraph)
 library(ggplot2)
 library(knitr)
 library(bookdown)
+library(pandoc)
 
 figures <- tar_read(figures)
 
@@ -71,10 +73,10 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 
 ## **Discussion et parallèles écologiques**
 \
-Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (Figure \ref{fig:plot1}). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. 
+Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (Figure \ref{fig:centralite}). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. 
 \
 \
-```{r figs, , fig.cap="\\label{fig:plot1}Centralité.", fig.width=7, fig.height=6}
+```{r figs, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:centralite}"}
 
 ## FIGURE 1: CENTRALITÉ (RÉSEAU)
 
@@ -83,7 +85,7 @@ vertex.frame.color = NA,
 layout = layout.kamada.kawai(g))
 
 ```
-**Figure 1.** Centralité du réseau
+**Figure \ref{fig:centralite}.** Centralité du réseau
 \
 \
 Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents. Tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes plus cela démontre une stabilité de la communauté [@martin_gonzalez_centrality_2010]. Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème sain. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes [@martin_gonzalez_centrality_2010]. Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimiser leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple. 
@@ -101,7 +103,7 @@ Pour poursuivre, la modularité est définie par un groupe de nœuds (individus)
 La valeur que nous avions obtenue pour la modularité est la suivante (…). Nous pouvons observer dans la figure suivante les différents sous-groupes d’individus de la classe: 
 \
 \
-```{r, echo=F}
+```{r, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:modularite}"}
 ## FIGURE 2: MODULARITÉ
 
 plot(wtc_no_singletons, g_no_singletons, vertex.label = NA, vertex.size = 0,
@@ -109,19 +111,19 @@ plot(wtc_no_singletons, g_no_singletons, vertex.label = NA, vertex.size = 0,
      layout = layout.fruchterman.reingold(g_no_singletons), edge.width = 0)
 
 ```
-**Figure 2.** Modularité du réseau
+**Figure \ref{fig:modularite}.** Modularité du réseau
 \
 \
-Il semble y avoir un sous-groupe central (en rouge), de 41 individus, ayant beaucoup d’interactions avec d’autres sous-groupes. D’ailleurs, ce serait probablement cette sous-population qui participe le plus aux interactions sociales de la classe. En termes d’interactions humaines, nous pourrions conclure que ce sous-groupe permet à la communauté de la classe d’être stable et pourrait mener à l’unicité de la communauté. De plus, cette analyse nous permet également d’observer quelles sont les interactions amicales les plus fortes et s’il y a des sous-groupes exclus de la communauté. Nous pouvons observer sur la figure 2, qu’il y a (indiquer le nb….) sous-groupe qui semble exclus. 
+Il semble y avoir un sous-groupe central (en rouge), de 41 individus, ayant beaucoup d’interactions avec d’autres sous-groupes. D’ailleurs, ce serait probablement cette sous-population qui participe le plus aux interactions sociales de la classe. En termes d’interactions humaines, nous pourrions conclure que ce sous-groupe permet à la communauté de la classe d’être stable et pourrait mener à l’unicité de la communauté. De plus, cette analyse nous permet également d’observer quelles sont les interactions amicales les plus fortes et s’il y a des sous-groupes exclus de la communauté. Nous pouvons observer sur la figure \ref{fig:modularite}, qu’il y a (indiquer le nb….) sous-groupe qui semble exclus. 
 \
 \
 --------------------
 \
 \
-Finalement, pour la représentation du nombre de liens moyens et en fonction de la session d’arrivée des individus de la classe, nous avons décidé de représenter le tout dans un histogramme. Ainsi, la relation que nous devrions obtenir est une diminution constante des bandes de la gauche vers la droite dans le graphique, car plus les individus sont dans la communauté de la classe depuis longtemps, plus le nombre de liens devraient être grand. Comme nous pouvons le voir dans la figure suivante, nous avons quelques variations dans notre graphique : 
+Finalement, pour la représentation du nombre de liens moyens et en fonction de la session d’arrivée des individus de la classe, nous avons décidé de représenter le tout dans un histogramme. Ainsi, la relation que nous devrions obtenir est une diminution constante des bandes de la gauche vers la droite dans le graphique, car plus les individus sont dans la communauté de la classe depuis longtemps, plus le nombre de liens devraient être grand. Comme nous pouvons le voir dans la figure suivante, nous avons quelques variations dans notre figure \ref{fig:histogramme} : 
 \
 \
-```{r}
+```{r, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:histogramme}"}
 ## FIGURE 3: HISTOGRAMME
 
 ggplot(moyenne_liens_annee, aes(x = annee_debut, y = moyenne_liens_annee)) + 
