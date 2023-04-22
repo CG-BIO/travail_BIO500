@@ -35,22 +35,16 @@ fct_figures <- function(analyses){
   
 
   # Calcul de la centralité
-  eigen_centrality(g)$vector 
+  ec <- eigen_centrality(g)$vector
   
-  # Calculer le degré
+  #choisir les couleurs des noeuds
+  class_colors <- c("#009900", "#66ff66", "#ffff33", "#ff7f00", "#e41a1c")
+  class_colors <- cut(ec, breaks = 5, labels = class_colors)
+  class_colors <- as.character(class_colors)
+  
+  # Créer un vecteur de tailles pour les noeuds
   deg <- apply(L, 2, sum) + apply(L, 1, sum)
-  
-  # Le rang pour chaque noeud
-  rk <- rank(deg)
-  
-  # Faire un code de couleur
-  col.vec <- heat.colors(length(rk))
-  
-  # Attribuer aux noeuds la couleur
-  V(g)$color = col.vec[rk]
-  
-  # Calculer la taille des noeuds en fonction de leur degré
-  V(g)$size <- 10*sqrt(deg)/max(sqrt(deg))
+  node_sizes <- 10*sqrt(deg)/max(sqrt(deg))
   
   
   ## ANALYSES POUR FIGURE 2: MODULARITE
@@ -83,6 +77,6 @@ fct_figures <- function(analyses){
   
   ## RETOURNER OBJETS IMPORTANTS DE LA FONCTION
   
-  liste_figures <- list(g, wtc_no_singletons, g_no_singletons, moyenne_liens_annee)
+  liste_figures <- list(g, wtc_no_singletons, g_no_singletons, moyenne_liens_annee, class_colors, node_sizes)
   return(liste_figures)
 }

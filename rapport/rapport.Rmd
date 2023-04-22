@@ -44,6 +44,8 @@ g <- figures[[1]]
 wtc_no_singletons <- figures[[2]]
 g_no_singletons <- figures[[3]]
 moyenne_liens_annee <- figures[[4]]
+class_colors <- figures[[5]]
+node_sizes <- figures[[6]]
 
 ```
 
@@ -63,7 +65,7 @@ Ces questions seront étudiées en mettant en relation les différents concepts 
 \
 --------------------------------------------------------------------------------
 
-## **Méthode d'analyse et résultats**
+## **Méthode d'analyse**
 \
 L'étude comprenait à la base 30 fichiers de données: 10 comprenant des informations sur les étudiants, 10  comprenant des informations sur les cours et 10 comprenant des informations sur les différentes collaborations. D'abord, les données ont été importées et nettoyées dans un fichier "prep_donnees.R". Cet import corrigeait les noms de colonnes et de lignes en plus de combiner les fichiers du même type (étudiant, cours, collaboration).
 
@@ -74,21 +76,35 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 \
 --------------------------------------------------------------------------------
 
-## **Discussion et parallèles écologiques**
+## **Résultats et discussion**
 \
 Tout d’abord, après avoir étudié plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation graphique (figure \ref{fig:centralite}). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. Dans notre cas, la centralité correspond au degré d'influence d'un individu au sein du réseau d'interactions de la classe.
 \
 \
-```{r figs, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:centralite}"}
+```{r figs, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:centralite}", echo=FALSE}
 
 ## FIGURE 1: CENTRALITÉ (RÉSEAU)
 
+par(mar = c(0, 2, 2, 1))
+#Création figure
 plot(g, vertex.label=NA, edge.arrow.mode = 0,
-vertex.frame.color = NA,
-layout = layout.kamada.kawai(g))
+     vertex.frame.color = "black",
+     layout = layout.kamada.kawai(g), 
+     vertex.size = node_sizes,
+     vertex.color = class_colors)
+
+# Créer les étiquettes de classe pour la légende
+class_labels <- c("C très faible", "C faible", "C moyenne", "C forte", "C très forte")
+
+# Créer un vecteur de couleurs pour la légende
+legend_colors <- c("#009900", "#66ff66", "#ffff33", "#ff7f00", "#e41a1c")
+
+# Dessiner la légende
+legend("right", legend = class_labels, pch = 15, col = legend_colors, bty = "box", title="Légende", cex=0.6)
 
 ```
-**Figure \ref{fig:centralite}.** Centralité du réseau
+\
+**Figure \ref{fig:centralite}.** Centralité des étudiants de la classe
 \
 \
 Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents, tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes, plus cela démontre une stabilité de la communauté [@martin_gonzalez_centrality_2010]. Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème stable. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes [@martin_gonzalez_centrality_2010]. Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimisé leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple.
@@ -106,7 +122,7 @@ Pour poursuivre, la modularité est définie par un groupe de nœuds (individus)
 La valeur obtenue pour la modularité est de 0.43. Nous pouvons observer dans la figure \ref{fig:modularite} les différents sous-groupes d’individus de la classe, où les noeuds (étudiants) appartenant à un même sous-groupe sont de la même couleur et où chaque sous-groupe est entouré d'une couleur différente.
 \
 \
-```{r, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:modularite}"}
+```{r, fig.width=6, fig.height=6, fig.caption=T, fig.cap="\\label{fig:modularite}", echo=FALSE}
 ## FIGURE 2: MODULARITÉ
 
 plot(wtc_no_singletons, g_no_singletons, vertex.label = NA,
@@ -115,6 +131,7 @@ plot(wtc_no_singletons, g_no_singletons, vertex.label = NA,
      vertex.color = rainbow(length(communities)), edge.color=NA)
 
 ```
+\
 **Figure \ref{fig:modularite}.** Communautés présentes à l'intérieur du réseau (modularité).
 \
 \
@@ -128,7 +145,7 @@ En excluant les individus solos (absents de la figure \ref{fig:modularite}), il 
 Finalement, pour la représentation du nombre de liens moyens et en fonction de la session d’arrivée des individus de la classe, nous avons décidé de représenter le tout dans un histogramme. Ainsi, la relation que nous devrions obtenir est une diminution constante des bandes de la gauche vers la droite dans le graphique, car plus les individus sont dans la communauté de la classe depuis longtemps, plus le nombre de liens devraient être élevé. Comme nous pouvons le voir dans la figure suivante, nous avons quelques variations dans notre figure \ref{fig:histogramme} : 
 \
 \
-```{r, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:histogramme}"}
+```{r, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:histogramme}", echo=FALSE}
 #Figure 3 Histogramme
 moyenne_liens_annee <- read.csv("moyenne_liens_annee.csv")
 
@@ -157,6 +174,7 @@ ggplot(moyenne_liens_annee, aes(x = annee_debut, y = moyenne_liens_annee, fill =
   geom_hline(yintercept = seq(0, max(moyenne_liens_annee$moyenne_liens_annee), 20), color = "black")
 
 ```
+\
 **Figure 3.** Nombre moyens de liens par étudiant selon la session d'entrée à l'université.
 \
 \

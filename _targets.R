@@ -48,4 +48,3 @@ list(
     path = "./rapport/rapport.Rmd", # Le path du rapport à render
   )
 )
-tar_make()
