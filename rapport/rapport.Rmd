@@ -68,10 +68,9 @@ Ces questions seront étudiées en mettant en relation les différents concepts 
 ## **Méthode d'analyse**
 \
 L'étude comprenait à la base 30 fichiers de données: 10 comprenant des informations sur les étudiants, 10  comprenant des informations sur les cours et 10 comprenant des informations sur les différentes collaborations. D'abord, les données ont été importées et nettoyées dans un fichier "prep_donnees.R". Cet import corrigeait les noms de colonnes et de lignes en plus de combiner les fichiers du même type (étudiant, cours, collaboration).
+Nous en avons également profiter pour retirer tous les doublons, les lignes ne contenant que des NA. Les noms ont été corrigés autant pour les cours, que les noms de personnes.Nous avons ensuite créé une base de données SQl incluant nos trois fichiers principaux (etudiants, cours et collaboration) présentés sous formes de trois tables. Puis, nous avons injecté nos données dans ces tables. Nous avons fait 4 requêtes SQL qui nous on servi à compléter nos différentes analyses et nos figures. Nous avons ensuite effectué différentes analyses en liens avec nos objectifs.Finalement, nous avons créé 3 figures, soit une sur la centralité, une sur la modularité et un histogramme représentant le nombre de liens moyens par étudiants en fonction de leur session de début de baccalauréat. Nous avons monté notre projet en utlisant la fonction target de R pour optimiser et structurer notre code. Finalement, toutes les étapes de notre démarche de projet se trouvent sur le projet github "travail BIO500".
 
 
-Imbriquer le texte d'analyse ici ainsi que la présentation de principaux résultats. 
-Il faut aussi ajouter quelques exemples de codes pertinents. 
 \
 \
 --------------------------------------------------------------------------------
