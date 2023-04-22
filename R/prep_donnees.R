@@ -374,7 +374,8 @@ fct_prep <- function(x){
   write.csv(etudiant, file = "etudiant.csv", row.names=FALSE)
   write.csv(cours, file = "cours.csv", row.names=FALSE)
   
-  return(fct_prep)
+  liste_prep_donnees <- list(collab, etudiant, cours)
+  return(liste_prep_donnees)
 }
 
 

@@ -27,8 +27,20 @@ output:
 ---
 
 
-```{r}
+```{r, echo=F}
+
+# Charger le package
+library(igraph)
+library(ggplot2)
+
 figures <- tar_read(figures)
+
+# Charger les objets du target precedent
+g <- figures[[1]]
+wtc_no_singletons <- figures[[2]]
+g_no_singletons <- figures[[3]]
+moyenne_liens_annee <- figures[[4]]
+
 ```
 
 # **Introduction**
@@ -60,7 +72,15 @@ Il faut aussi ajouter quelques exemples de codes pertinents.
 Tout d’abord, après avoir étudier plusieurs façons de concevoir notre réseau d’interactions, c’est avec le concept théorique de la centralité que nous avons trouvé la meilleure représentation (figure 1). La centralité est une mesure qui permet de déterminer le degré d’influence que possède une espèce dans une communauté [@martin_gonzalez_centrality_2010]. 
 \
 \
-INSÉRER LA FIGURE 1
+```{r, echo=F}
+## FIGURE 1: CENTRALITÉ (RÉSEAU)
+
+plot(g, vertex.label=NA, edge.arrow.mode = 0,
+vertex.frame.color = NA,
+layout = layout.kamada.kawai(g))
+
+```
+**Figure 1.** Centralité du réseau
 \
 \
 Ainsi, pour poursuivre notre première analyse, nous pouvons constater que les individus plus vers le centre de notre figure sont ceux ayant le plus de liens différents. Tandis que ceux aux pourtours sont ceux n’ayant pas eu beaucoup de variabilité dans leurs interactions. Dans diverses communautés écologiques, plus les interactions sont complexes plus cela démontre une stabilité de la communauté [@martin_gonzalez_centrality_2010]. Donc, dans ce cas-ci, nous constatons qu’avec la concentration élevée d’interactions variées, la communauté de la classe serait un écosystème sain. L’autre parallèle que nous pourrions réaliser se situe au niveau des espèces généralistes et spécialistes. En effet, des espèces généralistes auront plus de diversité dans leurs interactions que les espèces spécialistes [@martin_gonzalez_centrality_2010]. Les individus de la classe ayant le plus d’interactions sociales seraient donc ceux ayant eu le plus de facilité à s’inclure et à diversifier leur cercle amical. Tandis que les individus étant vers l’extérieur de la figure sont ceux ayant minimiser leurs contacts. Cela pourrait être causé par divers facteurs dont la timidité par exemple. 
@@ -78,7 +98,15 @@ Pour poursuivre, la modularité est définie par un groupe de nœuds (individus)
 La valeur que nous avions obtenue pour la modularité est la suivante (…). Nous pouvons observer dans la figure suivante les différents sous-groupes d’individus de la classe: 
 \
 \
-INSÉRER LA FIGURE 2 
+```{r, echo=F}
+## FIGURE 2: MODULARITÉ
+
+plot(wtc_no_singletons, g_no_singletons, vertex.label = NA, vertex.size = 0,
+     edge.arrow.mode = 0, vertex.frame.color = NA, 
+     layout = layout.fruchterman.reingold(g_no_singletons), edge.width = 0)
+
+```
+**Figure 2.** Modularité du réseau
 \
 \
 Il semble y avoir un sous-groupe central (en rouge), de 41 individus, ayant beaucoup d’interactions avec d’autres sous-groupes. D’ailleurs, ce serait probablement cette sous-population qui participe le plus aux interactions sociales de la classe. En termes d’interactions humaines, nous pourrions conclure que ce sous-groupe permet à la communauté de la classe d’être stable et pourrait mener à l’unicité de la communauté. De plus, cette analyse nous permet également d’observer quelles sont les interactions amicales les plus fortes et s’il y a des sous-groupes exclus de la communauté. Nous pouvons observer sur la figure 2, qu’il y a (indiquer le nb….) sous-groupe qui semble exclus. 
@@ -90,7 +118,16 @@ Il semble y avoir un sous-groupe central (en rouge), de 41 individus, ayant beau
 Finalement, pour la représentation du nombre de liens moyens et en fonction de la session d’arrivée des individus de la classe, nous avons décidé de représenter le tout dans un histogramme. Ainsi, la relation que nous devrions obtenir est une diminution constante des bandes de la gauche vers la droite dans le graphique, car plus les individus sont dans la communauté de la classe depuis longtemps, plus le nombre de liens devraient être grand. Comme nous pouvons le voir dans la figure suivante, nous avons quelques variations dans notre graphique : 
 \
 \
-INSÉRER LA FIGURE 3
+```{r}
+## FIGURE 3: HISTOGRAMME
+
+ggplot(moyenne_liens_annee, aes(x = annee_debut, y = moyenne_liens_annee)) + 
+  geom_bar(stat = "identity", fill = "steelblue") + 
+  labs(x = "Année de début", y = "Nombre moyen de liens") + 
+  ggtitle("Histogramme du nombre moyen de liens en fonction de l'année de début")
+
+```
+**Figure 3.** Nombre moyens de liens par étudiant selon la session d'entrée à l'université.
 \
 \
 En effet, le nombre total de lien ne devrait pas être plus bas à la session de l’automne 2019 ainsi qu’à l’hiver 2020 en comparaison avec les sessions qui suivent. Cela peut être expliqué par une trop petite taille de la population (puisqu’il s’agit d’une moyenne). Nous pourrions également expliquer cette diminution à l’aide des dynamiques sociales entre les êtres humains. En effet, malgré une présence plus longue dans la communauté, un individu plus introverti aura une participation plus faible au réseau d’interactions. 
@@ -108,28 +145,6 @@ Bref, nous avons pu répondre à nos différentes questions d’analyse. Nous av
 \
 \
 
-## Using CSL 
-
-If `citation_package` is set to `default` in `elsevier_article()`, then pandoc is used for citations instead of `natbib`. In this case, the `csl` option is used to format the references. Alternative `csl` files are available from <https://www.zotero.org/styles?q=elsevier>. These can be downloaded
-and stored locally, or the url can be used as in the example header.
-
-# Figures and tables
-
-Figure \ref{fig2} is generated using an R chunk.
-
-```{r fig2, fig.width = 5, fig.height = 5, fig.align='center', out.width="50%", fig.cap = "\\label{fig2}A meaningless scatterplot.", echo = FALSE}
-plot(runif(25), runif(25))
-```
-
-# Tables coming from R
-
-Tables can also be generated using R chunks, as shown in Table \ref{tab1} for example.
-
-```{r tab1, echo = TRUE}
-knitr::kable(head(mtcars)[,1:4], 
-    caption = "\\label{tab1}Caption centered above table"
-)
-```
 
 # References {-}
 
