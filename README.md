@@ -1,1 +1,2 @@
-# travail_BIO500
+# Projet_BIO500 Nicolas Beaudoin, Francis Boily, Marilou Cournoyer, Camille Gagnon
+Pour l'exécution des scripts, allez dans le fichier _target.R puis exécuter les trois library. Ensuite, tapez dans la console tar_make() et tous les scrits devraient s'exécuter. Vous trouverez aussi le rapport.pdf dans le dossier rapport
