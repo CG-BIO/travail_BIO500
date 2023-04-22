@@ -124,12 +124,32 @@ Finalement, pour la représentation du nombre de liens moyens et en fonction de 
 \
 \
 ```{r, fig.width=7, fig.height=6, fig.caption=T, fig.cap="\\label{fig:histogramme}"}
-## FIGURE 3: HISTOGRAMME
+#Figure 3 Histogramme
+moyenne_liens_annee <- read.csv("moyenne_liens_annee.csv")
 
-ggplot(moyenne_liens_annee, aes(x = annee_debut, y = moyenne_liens_annee)) + 
-  geom_bar(stat = "identity", fill = "steelblue") + 
+# Ajouter le niveau "NA" à la variable "annee_debut"
+moyenne_liens_annee$annee_debut <- addNA(moyenne_liens_annee$annee_debut)
+
+# Convertir l'année de début en facteur et inverser l'ordre des niveaux de facteur pour "annee_debut"
+moyenne_liens_annee$annee_debut <- factor(moyenne_liens_annee$annee_debut, 
+                                          levels = c("H2019", "A2019", "H2020", "A2020", "A2021", "H2022", "A2022", NA))
+
+# Créer une nouvelle colonne avec les noms de catégories
+moyenne_liens_annee$session_debut <- ifelse(grepl("H", moyenne_liens_annee$annee_debut), "Hiver", "Automne")
+
+# Définir une palette de couleurs personnalisée pour les catégories
+palette_couleurs <- c("#56B4E9", "#E69F00", "#56B4E9", "#E69F00", "#E69F00", "#56B4E9", "#E69F00", "gray")
+
+# Tracer l'histogramme avec une couleur différente par catégorie et des lignes horizontales tous les 20
+ggplot(moyenne_liens_annee, aes(x = annee_debut, y = moyenne_liens_annee, fill = session_debut)) + 
+  geom_bar(stat = "identity") + 
+  scale_fill_manual(values = palette_couleurs, 
+                    labels = c("Hiver", "Automne", "Information manquante"), 
+                    na.value = "#B2B2B2") +
   labs(x = "Année de début", y = "Nombre moyen de liens") + 
-  ggtitle("Histogramme du nombre moyen de liens en fonction de l'année de début")
+  ggtitle("Histogramme du nombre moyen de liens en fonction de l'année de début") +
+  theme(plot.background = element_rect(fill = "white"), panel.background = element_rect(fill = "white"), panel.grid.major.y = element_line(color = "black", linetype = "dashed")) +
+  geom_hline(yintercept = seq(0, max(moyenne_liens_annee$moyenne_liens_annee), 20), color = "black")
 
 ```
 **Figure 3.** Nombre moyens de liens par étudiant selon la session d'entrée à l'université.
